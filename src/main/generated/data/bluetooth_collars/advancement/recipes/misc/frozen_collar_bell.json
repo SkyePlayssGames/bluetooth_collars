@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_frozen_collar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bluetooth_collars:frozen_collar"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "bluetooth_collars:frozen_collar_bell"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_frozen_collar"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bluetooth_collars:frozen_collar_bell"
+    ]
+  }
+}

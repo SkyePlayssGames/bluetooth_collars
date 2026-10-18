@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "c": "minecraft:copper_chain",
+    "i": "minecraft:copper_ingot",
+    "n": "minecraft:copper_nugget"
+  },
+  "pattern": [
+    "ncn",
+    "c c",
+    "iii"
+  ],
+  "result": {
+    "id": "bluetooth_collars:lock"
+  }
+}

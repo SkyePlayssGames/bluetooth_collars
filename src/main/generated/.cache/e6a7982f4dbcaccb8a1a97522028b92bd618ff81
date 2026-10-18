@@ -1,0 +1,6 @@
+// 26.3	-999999999-01-01T00:00:00	Bluetooth Collars/Tags for minecraft:item
+866f55031ed5d57d74cb20d2cb5af5d3b3048b5f data/bluetooth_collars/tags/item/collars.json
+19e6ec9df0d83326baa3a4b54a84175d9a723a1d data/bluetooth_collars/tags/item/remotes.json
+64b5b6cf3c39e9fd2fec98011ab70072692d0e06 data/minecraft/tags/item/enchantable/equippable.json
+64b5b6cf3c39e9fd2fec98011ab70072692d0e06 data/minecraft/tags/item/enchantable/vanishing.json
+64b5b6cf3c39e9fd2fec98011ab70072692d0e06 data/trinkets/tags/item/chest/necklace.json

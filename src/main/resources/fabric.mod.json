@@ -1,0 +1,49 @@
+{
+	"schemaVersion": 1,
+	"id": "bluetooth_collars",
+	"version": "${version}",
+	"name": "Bluetooth Collars",
+	"description": "Collar your friends!",
+	"authors": [
+		"AutisticPlush",
+		"Alseco"
+	],
+	"contact": {
+	},
+	"license": "ARR",
+	"icon": "assets/bluetooth_collars/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "net.galaxyy.bluetoothcollars.BluetoothCollars",
+				"adapter": "kotlin"
+			}
+		],
+		"fabric-datagen": [
+			{
+				"value": "net.galaxyy.bluetoothcollars.BluetoothCollarsDataGenerator",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"bluetooth_collars.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*",
+		"trinkets": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.discord": "https://discord.gg/JKf45qeTen",
+				"modmenu.wiki": "https://modded.wiki/w/Bluetooth_Collars"
+			}
+		}
+	}
+}

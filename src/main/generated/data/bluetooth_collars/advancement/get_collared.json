@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "get_collared": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#bluetooth_collars:collars"
+          }
+        ]
+      },
+      "trigger": "minecraft:trinket_equip"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.bluetooth_collars.get_collared.description"
+    },
+    "icon": {
+      "id": "bluetooth_collars:tied_collar"
+    },
+    "title": {
+      "translate": "advancement.bluetooth_collars.get_collared.name"
+    }
+  },
+  "requirements": [
+    [
+      "get_collared"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

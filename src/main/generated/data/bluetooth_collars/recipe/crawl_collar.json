@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "crawl_collar",
+  "key": {
+    "c": "minecraft:copper_ingot",
+    "i": "minecraft:iron_ingot",
+    "l": "minecraft:leather",
+    "w": "minecraft:yellow_wool"
+  },
+  "pattern": [
+    "wcw",
+    "ili"
+  ],
+  "result": {
+    "id": "bluetooth_collars:crawl_collar"
+  }
+}

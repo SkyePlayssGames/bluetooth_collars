@@ -1,0 +1,110 @@
+{
+  "parent": "bluetooth_collars:get_collared",
+  "criteria": {
+    "blinding_collar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bluetooth_collars:blinding_collar"
+          }
+        ]
+      },
+      "trigger": "minecraft:collar_activate"
+    },
+    "clumsy_collar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bluetooth_collars:clumsy_collar"
+          }
+        ]
+      },
+      "trigger": "minecraft:collar_activate"
+    },
+    "crawl_collar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bluetooth_collars:crawl_collar"
+          }
+        ]
+      },
+      "trigger": "minecraft:collar_activate"
+    },
+    "frozen_collar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bluetooth_collars:frozen_collar"
+          }
+        ]
+      },
+      "trigger": "minecraft:collar_activate"
+    },
+    "paw_collar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bluetooth_collars:paw_collar"
+          }
+        ]
+      },
+      "trigger": "minecraft:collar_activate"
+    },
+    "tied_down_collar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bluetooth_collars:tied_collar"
+          }
+        ]
+      },
+      "trigger": "minecraft:collar_activate"
+    },
+    "tiny_collar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bluetooth_collars:tiny_collar"
+          }
+        ]
+      },
+      "trigger": "minecraft:collar_activate"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.bluetooth_collars.experimental.description"
+    },
+    "icon": {
+      "id": "bluetooth_collars:tiny_collar"
+    },
+    "title": {
+      "translate": "advancement.bluetooth_collars.experimental.name"
+    }
+  },
+  "requirements": [
+    [
+      "tied_down_collar"
+    ],
+    [
+      "clumsy_collar"
+    ],
+    [
+      "crawl_collar"
+    ],
+    [
+      "paw_collar"
+    ],
+    [
+      "tiny_collar"
+    ],
+    [
+      "blinding_collar"
+    ],
+    [
+      "frozen_collar"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

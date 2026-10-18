@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "blinding_collar",
+  "key": {
+    "c": "minecraft:copper_ingot",
+    "i": "minecraft:iron_ingot",
+    "l": "minecraft:leather",
+    "w": "minecraft:black_wool"
+  },
+  "pattern": [
+    "wcw",
+    "ili"
+  ],
+  "result": {
+    "id": "bluetooth_collars:blinding_collar"
+  }
+}

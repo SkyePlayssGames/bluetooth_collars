@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "tiny_collar",
+  "ingredients": [
+    "bluetooth_collars:tiny_collar",
+    "minecraft:bell"
+  ],
+  "result": {
+    "components": {
+      "bluetooth_collars:bell": {
+        "bell": true
+      }
+    },
+    "id": "bluetooth_collars:tiny_collar"
+  }
+}

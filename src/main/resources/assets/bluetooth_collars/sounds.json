@@ -1,0 +1,14 @@
+{
+  "click": {
+    "subtitle": "sound.bluetooth_collars.click",
+    "sounds": [
+      "bluetooth_collars:click"
+    ]
+  },
+  "bell": {
+    "subtitle": "sound.bluetooth_collars.bell",
+    "sounds": [
+      "bluetooth_collars:bell_ring"
+    ]
+  }
+}

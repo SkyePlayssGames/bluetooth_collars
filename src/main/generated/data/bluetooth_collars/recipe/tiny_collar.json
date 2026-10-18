@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tiny_collar",
+  "key": {
+    "c": "minecraft:copper_ingot",
+    "i": "minecraft:iron_ingot",
+    "l": "minecraft:leather",
+    "w": "minecraft:purple_wool"
+  },
+  "pattern": [
+    "wcw",
+    "ili"
+  ],
+  "result": {
+    "id": "bluetooth_collars:tiny_collar"
+  }
+}

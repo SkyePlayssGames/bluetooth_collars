@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "clumsy_collar",
+  "ingredients": [
+    "bluetooth_collars:clumsy_collar",
+    "minecraft:cobblestone"
+  ],
+  "result": {
+    "components": {
+      "bluetooth_collars:extra_collar": true
+    },
+    "id": "bluetooth_collars:clumsy_collar"
+  }
+}

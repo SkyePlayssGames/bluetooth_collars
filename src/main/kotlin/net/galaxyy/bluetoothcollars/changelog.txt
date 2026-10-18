@@ -1,0 +1,36 @@
+1.3
+1.3-snap-1
+- Fixed #BC5
+- non-Collar items can no longer have the LOCATION component
+- Added a Remote Range gamerule
+
+1.3-snap-2
+- Tie-Down collars can now be tied to 0, 0, 0
+- Tie-Down collars now teleport players to the center of the block instead of being offset by sqrt(0.5)
+- Fixed #BC4
+
+1.3-snap-3
+- Fixed #BC6
+- Added Frozen Collar and Remote
+
+1.3-snap-4
+- Fixed #BC7
+- Fixed #BC8
+- Fixed #BC9
+
+1.3-snap-5
+- Collars now have their activation for owning and locking be holding shift, not crouching
+- Remotes can now be clicked in the air
+- Tie-Down Collars now deactivate if Tie-Down Remote is clicked in the air
+- Fixed #BC11
+- The Frozen Collar no longer changes POV when you try initiating a sprint while frozen
+
+1.3-snap-6
+- Added Universal Collars
+
+1.3-snap-7
+- Made COLLAR_MATERIAL Deprecated and error
+- Made COLLAR_MATERIAL_KEY Deprecated and private
+
+1.3-rc-1
+- Made Collars able to be both Bell and Universal

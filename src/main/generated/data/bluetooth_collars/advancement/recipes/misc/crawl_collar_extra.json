@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crawl_collar": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bluetooth_collars:crawl_collar"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "bluetooth_collars:crawl_collar_extra"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_crawl_collar"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bluetooth_collars:crawl_collar_extra"
+    ]
+  }
+}

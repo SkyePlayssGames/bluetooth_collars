@@ -1,0 +1,11 @@
+{
+  "values": [
+    "bluetooth_collars:paw_collar",
+    "bluetooth_collars:clumsy_collar",
+    "bluetooth_collars:crawl_collar",
+    "bluetooth_collars:tied_collar",
+    "bluetooth_collars:tiny_collar",
+    "bluetooth_collars:blinding_collar",
+    "bluetooth_collars:frozen_collar"
+  ]
+}

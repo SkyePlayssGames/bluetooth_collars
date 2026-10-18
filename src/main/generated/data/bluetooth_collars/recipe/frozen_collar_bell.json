@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "frozen_collar",
+  "ingredients": [
+    "bluetooth_collars:frozen_collar",
+    "minecraft:bell"
+  ],
+  "result": {
+    "components": {
+      "bluetooth_collars:bell": {
+        "bell": true
+      }
+    },
+    "id": "bluetooth_collars:frozen_collar"
+  }
+}

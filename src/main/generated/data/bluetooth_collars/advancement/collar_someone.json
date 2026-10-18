@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "collar_someone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#bluetooth_collars:remotes"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.bluetooth_collars.collar_someone.description"
+    },
+    "icon": {
+      "id": "bluetooth_collars:tied_remote"
+    },
+    "title": {
+      "translate": "advancement.bluetooth_collars.collar_someone.name"
+    }
+  },
+  "requirements": [
+    [
+      "collar_someone"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

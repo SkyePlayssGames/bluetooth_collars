@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bluetooth_collars:item/tiny_remote"
+  }
+}

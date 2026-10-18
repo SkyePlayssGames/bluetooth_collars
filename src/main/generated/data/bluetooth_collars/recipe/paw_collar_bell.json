@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "paw_collar",
+  "ingredients": [
+    "bluetooth_collars:paw_collar",
+    "minecraft:bell"
+  ],
+  "result": {
+    "components": {
+      "bluetooth_collars:bell": {
+        "bell": true
+      }
+    },
+    "id": "bluetooth_collars:paw_collar"
+  }
+}
