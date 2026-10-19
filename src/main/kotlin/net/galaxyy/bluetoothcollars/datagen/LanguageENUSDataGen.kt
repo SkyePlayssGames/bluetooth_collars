@@ -63,5 +63,6 @@ class LanguageENUSDataGen(output: FabricPackOutput, lookup: CompletableFuture<Ho
         translationBuilder.add("modmenu.nameTranslation.$MOD_ID", "Bluetooth Collars")
         translationBuilder.add("modmenu.descriptionTranslation.$MOD_ID", "Collar all your friends and give them restrictions, or be the tail of the joke yourself!")
         translationBuilder.add("modmenu.summaryTranslation.$MOD_ID", "Collar your friends!")
+        translationBuilder.add("$MOD_ID.modmenu_link.source", "Source")
     }
 }

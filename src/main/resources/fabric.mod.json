@@ -42,7 +42,9 @@
 		"modmenu": {
 			"links": {
 				"modmenu.discord": "https://discord.gg/JKf45qeTen",
-				"modmenu.wiki": "https://modded.wiki/w/Bluetooth_Collars"
+				"modmenu.wiki": "https://modded.wiki/w/Bluetooth_Collars",
+				"modmenu.modrinth": "https://modrinth.com/mod/bluetooth-collars",
+				"bluetooth_collars.modmenu_link.source": "https://github.com/SkyePlayssGames/bluetooth_collars"
 			}
 		}
 	}

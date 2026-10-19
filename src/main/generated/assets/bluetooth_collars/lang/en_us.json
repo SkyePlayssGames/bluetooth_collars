@@ -7,6 +7,7 @@
   "advancement.bluetooth_collars.get_collared.name": "Get Collared!",
   "advancement.bluetooth_collars.universal_toy.description": "Wear a cursed universal collar!",
   "advancement.bluetooth_collars.universal_toy.name": "Universal Toy",
+  "bluetooth_collars.modmenu_link.source": "Source",
   "bluetooth_collars.overlay.click": "You hear your collar click!",
   "bluetooth_collars.remote_range": "Remote Range",
   "bluetooth_collars.tooltip.bell": "Bell",
