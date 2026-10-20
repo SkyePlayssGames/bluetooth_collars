@@ -33,8 +33,11 @@ import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.context.UseOnContext
 import net.minecraft.world.item.enchantment.Enchantment
 import net.minecraft.world.item.enchantment.Enchantments
+import net.minecraft.world.level.ClipContext
 import net.minecraft.world.level.Level
 import net.minecraft.world.phys.AABB
+import net.minecraft.world.phys.BlockHitResult
+import net.minecraft.world.phys.HitResult
 import java.util.UUID
 import java.util.function.BiConsumer
 
@@ -102,18 +105,17 @@ abstract class AbstractCollar(properties: Properties, val key: ResourceKey<Item>
     abstract class Remote<T : AbstractCollar>(val collar: Class<T>, properties: Properties) : Item(properties
         .stacksTo(1)
     ) {
-        var runningRemoteClick: Boolean = false
-
-        override fun useOn(context: UseOnContext): InteractionResult {
-            return if (!runningRemoteClick) runRemoteCode(context.level, context.player, context.hand, context.clickedPos) else InteractionResult.PASS
-        }
-
         override fun use(level: Level, player: Player, hand: InteractionHand): InteractionResult {
-            return if (!runningRemoteClick) runRemoteCode(level, player, hand, null) else InteractionResult.PASS
+            val bhr: BlockHitResult = level.clip(ClipContext(
+                player.eyePosition,
+                player.eyePosition.add(player.getViewVector(1f).scale(Player.DEFAULT_BLOCK_INTERACTION_RANGE.toDouble())),
+                ClipContext.Block.OUTLINE, ClipContext.Fluid.NONE, player))
+            return if (bhr.type == HitResult.Type.BLOCK)
+                runRemoteCode(level, player, hand, BlockPos.containing(bhr.location))
+            else runRemoteCode(level, player, hand, null)
         }
 
         private fun runRemoteCode(level: Level, player: Player?, hand: InteractionHand, blockPos: BlockPos?): InteractionResult {
-            runningRemoteClick = true
             if (level.isClientSide) return InteractionResult.PASS
             var result: InteractionResult = InteractionResult.PASS
 
@@ -144,11 +146,6 @@ abstract class AbstractCollar(properties: Properties, val key: ResourceKey<Item>
                 }
             }
             return result
-        }
-
-        override fun inventoryTick(itemStack: ItemStack, level: ServerLevel, owner: Entity, slot: EquipmentSlot?) {
-            runningRemoteClick = false
-            super.inventoryTick(itemStack, level, owner, slot)
         }
     }
 

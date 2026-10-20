@@ -2,6 +2,7 @@ package net.galaxyy.bluetoothcollars.items.collars
 
 import net.galaxyy.bluetoothcollars.items.itemdata.ModDataComponents
 import net.minecraft.core.BlockPos
+import net.minecraft.network.chat.Component
 import net.minecraft.resources.ResourceKey
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.InteractionResult
@@ -12,7 +13,6 @@ import net.minecraft.world.level.Level
 
 class TieDownCollar(properties: Properties, key: ResourceKey<Item>) : AbstractCollar(
     properties
-        .component(ModDataComponents.LOCATION, BlockPos.ZERO)
         .component(ModDataComponents.ACTIVE, false)
         .component(ModDataComponents.ACTIVE2, false), key
 ) {
@@ -20,6 +20,7 @@ class TieDownCollar(properties: Properties, key: ResourceKey<Item>) : AbstractCo
         collar.set(ModDataComponents.ACTIVE2, false)
         val location: Pair<BlockPos, Boolean> = findLocation(level, blockPos)
         if (collar.get(ModDataComponents.LOCATION) == location.first || !location.second) {
+            collar.set(ModDataComponents.LOCATION, null)
             collar.set(ModDataComponents.ACTIVE, false)
         } else {
             collar.set(ModDataComponents.LOCATION, location.first)
