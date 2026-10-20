@@ -73,11 +73,6 @@ abstract class AbstractCollar(properties: Properties, val key: ResourceKey<Item>
         if (level.isClientSide) return super.use(level, player, hand)
         if (!player.isShiftKeyDown) return super.use(level, player, hand)
         val itemStack: ItemStack = player.getItemInHand(hand)
-        val offhandItem: ItemStack = player.getItemInHand(offHand(hand))
-        if (offhandItem.`is`(ModItems.LOCK)) {
-            val result = useLock(level, player, itemStack, hand, offhandItem)
-            if (result == InteractionResult.SUCCESS_SERVER) return result
-        }
         if (itemStack.get(ModDataComponents.OWNER_ALL)?.bool == true) return InteractionResult.PASS
         val ownersList: List<UUID> = itemStack.get(ModDataComponents.OWNER)!!.list
         if (!ownersList.contains(player.uuid)) {
@@ -156,14 +151,6 @@ abstract class AbstractCollar(properties: Properties, val key: ResourceKey<Item>
         itemStack.enchant(curseOfBinding, 1)
         player.setItemInHand(hand, itemStack)
 
-        if (!player.isCreative) {
-            offhandItem.count--
-            player.setItemInHand(offHand(hand), offhandItem)
-        }
-
         return InteractionResult.SUCCESS_SERVER
     }
-
-    fun offHand(hand: InteractionHand): InteractionHand
-    = if (hand == InteractionHand.MAIN_HAND) InteractionHand.OFF_HAND else InteractionHand.MAIN_HAND
 }
