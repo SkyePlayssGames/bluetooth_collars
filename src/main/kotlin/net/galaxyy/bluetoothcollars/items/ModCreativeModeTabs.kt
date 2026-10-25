@@ -35,6 +35,7 @@ object ModCreativeModeTabs {
             output.accept(ModItems.BLINDING_REMOTE)
             output.accept(ModItems.FROZEN_COLLAR)
             output.accept(ModItems.FROZEN_REMOTE)
+            output.accept(ModBlocks.COLLAR_CRAFTER)
         }
         .build()
 

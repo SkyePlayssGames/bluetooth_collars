@@ -6,8 +6,10 @@ import net.fabricmc.fabric.api.item.v1.ItemComponentTooltipProviderRegistry
 import net.galaxyy.bluetoothcollars.events.ModTriggers
 import net.galaxyy.bluetoothcollars.events.TickCollarsEvent
 import net.galaxyy.bluetoothcollars.gamerules.ModGameRules
+import net.galaxyy.bluetoothcollars.items.ModBlocks
 import net.galaxyy.bluetoothcollars.items.ModCreativeModeTabs
 import net.galaxyy.bluetoothcollars.items.ModItems
+import net.galaxyy.bluetoothcollars.items.blockentities.ModBlockEntities
 import net.galaxyy.bluetoothcollars.items.itemdata.ModDataComponents
 import net.galaxyy.bluetoothcollars.sounds.ModSounds
 import net.minecraft.core.component.DataComponents
@@ -22,6 +24,8 @@ object BluetoothCollars : ModInitializer {
 
 	override fun onInitialize() {
 		ModItems.registerItems()
+		ModBlocks.registerBlocks()
+		ModBlockEntities.registerBlockEntities()
 		ModDataComponents.registerDataComponents()
 		ModCreativeModeTabs.registerCreativeModeTabs()
 		ModSounds.registerSounds()
