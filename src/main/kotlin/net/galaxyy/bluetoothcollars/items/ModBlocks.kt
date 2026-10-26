@@ -17,6 +17,7 @@ object ModBlocks {
     val COLLAR_CRAFTER: CollarCrafter = register(
         COLLAR_CRAFTER_KEY, ::CollarCrafter,
         BlockBehaviour.Properties.of()
+            .noOcclusion()
     )
 
 

@@ -34,7 +34,7 @@ class CollarCrafterBERenderer(context: BlockEntityRendererProvider.Context) : Bl
     ) {
         BluetoothCollars.LOGGER.info("Rendering BE")
         poseStack.pushPose()
-        poseStack.mulPose(Matrix4f().translate(0.5f, 1f, 0.5f).scale(0.9f).rotate(Axis.XP.rotationDegrees(90f)))
+        poseStack.mulPose(Matrix4f().translate(0.5f, 17f/16f, 0.5f).scale(0.8f).rotate(Axis.XP.rotationDegrees(90f)))
 
         state.itemStackRenderState.submit(poseStack, submitNodeCollector, state.lightCoords, OverlayTexture.NO_OVERLAY, 0)
 
