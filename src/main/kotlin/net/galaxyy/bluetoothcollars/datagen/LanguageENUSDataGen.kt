@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider
 import net.galaxyy.bluetoothcollars.BluetoothCollars.MOD_ID
 import net.galaxyy.bluetoothcollars.BluetoothCollars.TRINKETS_MOD_ID
+import net.galaxyy.bluetoothcollars.items.ModBlocks
 import net.galaxyy.bluetoothcollars.items.ModItems
 import net.minecraft.core.HolderLookup
 import java.util.concurrent.CompletableFuture
@@ -28,6 +29,8 @@ class LanguageENUSDataGen(output: FabricPackOutput, lookup: CompletableFuture<Ho
         translationBuilder.add(ModItems.FROZEN_COLLAR, "Frozen Collar")
         translationBuilder.add(ModItems.FROZEN_REMOTE, "Frozen Remote")
         translationBuilder.add(ModItems.LOCK, "Collar Lock")
+
+        translationBuilder.add(ModBlocks.COLLAR_CRAFTER, "COLLAR_CRAFTER_BETA_NAME")
 
         translationBuilder.add("$MOD_ID.overlay.click", "You hear your collar click!")
         translationBuilder.add("$MOD_ID.tooltip.owners_plural", "Owners:")

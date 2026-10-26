@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "bluetooth_collars:block/collar_crafter_bottom",
+    "side": "bluetooth_collars:block/collar_crafter_side",
+    "top": "bluetooth_collars:block/collar_crafter_top"
+  }
+}

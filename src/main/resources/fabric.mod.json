@@ -20,6 +20,12 @@
 				"adapter": "kotlin"
 			}
 		],
+		"client": [
+			{
+				"value": "net.galaxyy.bluetoothcollars.BluetoothCollarClient",
+				"adapter": "kotlin"
+			}
+		],
 		"fabric-datagen": [
 			{
 				"value": "net.galaxyy.bluetoothcollars.BluetoothCollarsDataGenerator",

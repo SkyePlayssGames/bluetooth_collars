@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "bluetooth_collars:block/collar_crafter"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "bluetooth_collars:block/collar_crafter"
+    }
+  }
+}
