@@ -1,0 +1,9 @@
+{
+  "type": "bluetooth_collars:collar_crafting",
+  "ingredient": "bluetooth_collars:lock",
+  "output": {
+    "minecraft:enchantments": {
+      "minecraft:binding_curse": 1
+    }
+  }
+}

@@ -12,6 +12,7 @@ import net.minecraft.advancements.Advancement
 import net.minecraft.core.Holder
 import net.minecraft.core.HolderLookup
 import net.minecraft.core.component.DataComponentPatch
+import net.minecraft.core.component.DataComponents
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.recipes.RecipeCategory
 import net.minecraft.data.recipes.RecipeOutput
@@ -37,6 +38,9 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
             override fun buildRecipes() {
                 val itemLookup: HolderLookup.RegistryLookup<Item> = registries.lookupOrThrow(Registries.ITEM)
                 val enchantmentLookup: HolderLookup.RegistryLookup<Enchantment> = registries.lookupOrThrow(Registries.ENCHANTMENT)
+                val curseOfBinding: ItemEnchantments.Mutable = ItemEnchantments.Mutable(ItemEnchantments.EMPTY)
+                curseOfBinding.set(enchantmentLookup.getOrThrow(Enchantments.BINDING_CURSE), 1)
+
                 makeRemoteRecipe(ModItems.TIED_DOWN_REMOTE, Items.WOOL.pink, output)
                 makeRemoteRecipe(ModItems.CLUMSY_REMOTE, Items.WOOL.lightBlue, output)
                 makeRemoteRecipe(ModItems.CRAWL_REMOTE, Items.WOOL.yellow, output)
@@ -65,8 +69,27 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
 
                 CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Blocks.BELL,
                     ModDataComponents.BELL, BellDataComponent(true)
-                ).unlockedBy(getHasName(Blocks.BELL), has(Blocks.BELL))
+                )
+                    .unlockedBy(getHasName(Blocks.BELL), has(Blocks.BELL))
                     .save(output, "$MOD_ID:bell_collar_crafting")
+
+                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Items.DIAMOND,
+                    ModDataComponents.OWNER_ALL, AllOwnersDataComponent(true)
+                )
+                    .unlockedBy(getHasName(Items.DIAMOND), has(Items.DIAMOND))
+                    .save(output, "$MOD_ID:owner_all_collar_crafting")
+
+                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Blocks.COBBLESTONE,
+                    ModDataComponents.EXTRA_COLLAR, true
+                )
+                    .unlockedBy(getHasName(Blocks.COBBLESTONE), has(Blocks.COBBLESTONE))
+                    .save(output, "$MOD_ID:extra_collar_collar_crafting")
+
+                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, ModItems.LOCK,
+                    DataComponents.ENCHANTMENTS, curseOfBinding.toImmutable()
+                )
+                    .unlockedBy(getHasName(ModItems.LOCK), has(ModItems.LOCK))
+                    .save(output, "$MOD_ID:lock_collar_crafting")
             }
 
             private fun makeRemoteRecipe(remote: Item, wool: Item, output: RecipeOutput) {
@@ -94,60 +117,6 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
                     .group(collar.key.identifier().path)
                     .unlockedBy(getHasName(wool), has(wool))
                     .save(output)
-
-                shapeless(
-                    RecipeCategory.MISC, ItemStackTemplate(
-                        collar, DataComponentPatch.builder()
-                            .set(ModDataComponents.BELL, BellDataComponent(true))
-                            .build()
-                    )
-                )
-                    .requires(collar)
-                    .requires(Items.BELL)
-                    .group(collar.key.identifier().path)
-                    .unlockedBy(getHasName(collar), has(collar))
-                    .save(output, collar.key.identifier().path + "_bell")
-
-                shapeless(
-                    RecipeCategory.MISC, ItemStackTemplate(
-                        collar, DataComponentPatch.builder()
-                            .set(ModDataComponents.OWNER_ALL, AllOwnersDataComponent(true))
-                            .build()
-                    )
-                )
-                    .requires(collar)
-                    .requires(Items.DIAMOND)
-                    .group(collar.key.identifier().path)
-                    .unlockedBy(getHasName(collar), has(collar))
-                    .save(output, collar.key.identifier().path + "_universal")
-
-                shapeless(
-                    RecipeCategory.MISC, ItemStackTemplate(
-                        collar, DataComponentPatch.builder()
-                            .set(ModDataComponents.BELL, BellDataComponent(true))
-                            .set(ModDataComponents.OWNER_ALL, AllOwnersDataComponent(true))
-                            .build()
-                    )
-                )
-                    .requires(collar)
-                    .requires(Items.DIAMOND)
-                    .requires(Items.BELL)
-                    .group(collar.key.identifier().path)
-                    .unlockedBy(getHasName(collar), has(collar))
-                    .save(output, collar.key.identifier().path + "_universal_bell")
-
-                shapeless(
-                    RecipeCategory.MISC, ItemStackTemplate(
-                        collar, DataComponentPatch.builder()
-                            .set(ModDataComponents.EXTRA_COLLAR, true)
-                            .build()
-                    )
-                )
-                    .requires(collar)
-                    .requires(Items.COBBLESTONE)
-                    .group(collar.key.identifier().path)
-                    .unlockedBy(getHasName(collar), has(collar))
-                    .save(output, collar.key.identifier().path + "_extra")
             }
         }
     }

@@ -1,0 +1,7 @@
+{
+  "type": "bluetooth_collars:collar_crafting",
+  "ingredient": "minecraft:cobblestone",
+  "output": {
+    "bluetooth_collars:extra_collar": true
+  }
+}
