@@ -1,11 +1,7 @@
-package net.galaxyy.bluetoothcollars.datagen
+package net.galaxyy.bluetoothcollars.datagen.recipe
 
-import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap
-import it.unimi.dsi.fastutil.objects.Reference2ObjectMap
-import it.unimi.dsi.fastutil.objects.Reference2ObjectOpenHashMap
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider
-import net.galaxyy.bluetoothcollars.BluetoothCollars.id
 import net.galaxyy.bluetoothcollars.items.ModItems
 import net.galaxyy.bluetoothcollars.items.collars.AbstractCollar
 import net.galaxyy.bluetoothcollars.items.itemdata.AllOwnersDataComponent
@@ -15,9 +11,6 @@ import net.minecraft.advancements.Advancement
 import net.minecraft.core.Holder
 import net.minecraft.core.HolderLookup
 import net.minecraft.core.component.DataComponentPatch
-import net.minecraft.core.component.DataComponentType
-import net.minecraft.core.component.DataComponents
-import net.minecraft.core.component.TypedDataComponent
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.recipes.RecipeCategory
 import net.minecraft.data.recipes.RecipeOutput
@@ -30,7 +23,6 @@ import net.minecraft.world.item.crafting.Recipe
 import net.minecraft.world.item.enchantment.Enchantment
 import net.minecraft.world.item.enchantment.Enchantments
 import net.minecraft.world.item.enchantment.ItemEnchantments
-import java.util.Optional
 import java.util.concurrent.CompletableFuture
 
 class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFuture<HolderLookup.Provider>) : FabricRecipeProvider(output, registriesFuture) {
@@ -96,29 +88,40 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
                     .unlockedBy(getHasName(wool), has(wool))
                     .save(output)
 
-                shapeless(RecipeCategory.MISC, ItemStackTemplate(collar, DataComponentPatch.builder()
-                    .set(ModDataComponents.BELL, BellDataComponent(true))
-                    .build()))
+                shapeless(
+                    RecipeCategory.MISC, ItemStackTemplate(
+                        collar, DataComponentPatch.builder()
+                            .set(ModDataComponents.BELL, BellDataComponent(true))
+                            .build()
+                    )
+                )
                     .requires(collar)
                     .requires(Items.BELL)
                     .group(collar.key.identifier().path)
                     .unlockedBy(getHasName(collar), has(collar))
                     .save(output, collar.key.identifier().path + "_bell")
 
-                shapeless(RecipeCategory.MISC, ItemStackTemplate(collar, DataComponentPatch.builder()
-                    .set(ModDataComponents.OWNER_ALL, AllOwnersDataComponent(true))
-                    .build()))
+                shapeless(
+                    RecipeCategory.MISC, ItemStackTemplate(
+                        collar, DataComponentPatch.builder()
+                            .set(ModDataComponents.OWNER_ALL, AllOwnersDataComponent(true))
+                            .build()
+                    )
+                )
                     .requires(collar)
                     .requires(Items.DIAMOND)
                     .group(collar.key.identifier().path)
                     .unlockedBy(getHasName(collar), has(collar))
                     .save(output, collar.key.identifier().path + "_universal")
 
-                shapeless(RecipeCategory.MISC, ItemStackTemplate(collar, DataComponentPatch.builder()
-                    .set(ModDataComponents.BELL, BellDataComponent(true))
-                    .set(ModDataComponents.OWNER_ALL, AllOwnersDataComponent(true))
-                    .build()
-                ))
+                shapeless(
+                    RecipeCategory.MISC, ItemStackTemplate(
+                        collar, DataComponentPatch.builder()
+                            .set(ModDataComponents.BELL, BellDataComponent(true))
+                            .set(ModDataComponents.OWNER_ALL, AllOwnersDataComponent(true))
+                            .build()
+                    )
+                )
                     .requires(collar)
                     .requires(Items.DIAMOND)
                     .requires(Items.BELL)
@@ -126,10 +129,13 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
                     .unlockedBy(getHasName(collar), has(collar))
                     .save(output, collar.key.identifier().path + "_universal_bell")
 
-                shapeless(RecipeCategory.MISC, ItemStackTemplate(collar, DataComponentPatch.builder()
-                    .set(ModDataComponents.EXTRA_COLLAR, true)
-                    .build()
-                ))
+                shapeless(
+                    RecipeCategory.MISC, ItemStackTemplate(
+                        collar, DataComponentPatch.builder()
+                            .set(ModDataComponents.EXTRA_COLLAR, true)
+                            .build()
+                    )
+                )
                     .requires(collar)
                     .requires(Items.COBBLESTONE)
                     .group(collar.key.identifier().path)

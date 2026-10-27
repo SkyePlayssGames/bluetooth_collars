@@ -5,7 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator
 import net.galaxyy.bluetoothcollars.datagen.AdvancementDataGen
 import net.galaxyy.bluetoothcollars.datagen.LanguageENUSDataGen
 import net.galaxyy.bluetoothcollars.datagen.ModelDataGen
-import net.galaxyy.bluetoothcollars.datagen.RecipeDataGen
+import net.galaxyy.bluetoothcollars.datagen.recipe.RecipeDataGen
 import net.galaxyy.bluetoothcollars.datagen.TagDataGen
 
 object BluetoothCollarsDataGenerator : DataGeneratorEntrypoint {

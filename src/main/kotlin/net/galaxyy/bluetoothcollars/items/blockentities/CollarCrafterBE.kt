@@ -1,5 +1,7 @@
 package net.galaxyy.bluetoothcollars.items.blockentities
 
+import net.galaxyy.bluetoothcollars.datagen.recipe.CollarCrafterRecipeInput
+import net.galaxyy.bluetoothcollars.datagen.recipe.ModRecipeTypes
 import net.galaxyy.bluetoothcollars.items.itemdata.ModItemTags
 import net.minecraft.core.BlockPos
 import net.minecraft.core.HolderLookup
@@ -8,6 +10,7 @@ import net.minecraft.nbt.CompoundTag
 import net.minecraft.network.protocol.Packet
 import net.minecraft.network.protocol.game.ClientGamePacketListener
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket
+import net.minecraft.server.level.ServerLevel
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.ContainerHelper
 import net.minecraft.world.InteractionHand
@@ -29,8 +32,23 @@ class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEn
             return if (trySetCollarStack(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.PASS
         } else if (player.getItemInHand(hand).isEmpty) {
             return if (tryTakeAwayCollarStack(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.PASS
+        } else {
+            return if (tryCraftCollar(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.PASS
         }
-        return InteractionResult.PASS
+    }
+
+    private fun tryCraftCollar(player: ServerPlayer, hand: InteractionHand): Boolean {
+        val input = CollarCrafterRecipeInput(
+            player.getItemInHand(hand), theItem
+        )
+        val recipe = (level as ServerLevel).recipeAccess().getRecipeFor(
+            ModRecipeTypes.COLLAR_CRAFTER_TYPE, input, level!!
+        )
+        if (recipe.isEmpty) return false
+        theItem = recipe.get().value.assemble(input)
+        player.setItemInHand(hand, player.getItemInHand(hand).copyWithCount(player.getItemInHand(hand).count - 1))
+        this.setChanged()
+        return true
     }
 
     private fun trySetCollarStack(player: ServerPlayer, hand: InteractionHand): Boolean {
