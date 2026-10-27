@@ -30,7 +30,7 @@ class LanguageENUSDataGen(output: FabricPackOutput, lookup: CompletableFuture<Ho
         translationBuilder.add(ModItems.FROZEN_REMOTE, "Frozen Remote")
         translationBuilder.add(ModItems.LOCK, "Collar Lock")
 
-        translationBuilder.add(ModBlocks.COLLAR_CRAFTER, "COLLAR_CRAFTER_BETA_NAME")
+        translationBuilder.add(ModBlocks.COLLAR_CRAFTER, "Collar Enhancer")
 
         translationBuilder.add("$MOD_ID.overlay.click", "You hear your collar click!")
         translationBuilder.add("$MOD_ID.tooltip.owners_plural", "Owners:")
