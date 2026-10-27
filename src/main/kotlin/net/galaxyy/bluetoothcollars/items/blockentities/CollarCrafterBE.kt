@@ -30,11 +30,11 @@ class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEn
 
     fun rightClick(player: ServerPlayer, hand: InteractionHand): InteractionResult {
         return if (player.getItemInHand(hand).`is`(ModItemTags.COLLARS)) {
-            if (trySetCollarStack(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.PASS
+            if (trySetCollarStack(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.CONSUME
         } else if (player.getItemInHand(hand).isEmpty) {
-            if (tryTakeAwayCollarStack(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.PASS
+            if (tryTakeAwayCollarStack(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.CONSUME
         } else {
-            if (tryCraftCollar(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.PASS
+            if (tryCraftCollar(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.CONSUME
         }
     }
 

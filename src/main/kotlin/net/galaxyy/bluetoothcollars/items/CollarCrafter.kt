@@ -30,7 +30,7 @@ class CollarCrafter(properties: Properties) : BaseEntityBlock(properties) {
         hand: InteractionHand,
         hitResult: BlockHitResult
     ): InteractionResult {
-        if (level.isClientSide || hand == InteractionHand.OFF_HAND || level.getBlockEntity(pos) !is CollarCrafterBE) return InteractionResult.PASS
+        if (level.isClientSide || hand == InteractionHand.OFF_HAND || level.getBlockEntity(pos) !is CollarCrafterBE) return InteractionResult.CONSUME
         return (level.getBlockEntity(pos)!! as CollarCrafterBE).rightClick(player as ServerPlayer, hand)
     }
 }
