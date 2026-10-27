@@ -18,6 +18,7 @@ import net.minecraft.world.InteractionResult
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.block.Block
+import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.entity.BlockEntity
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.storage.ValueInput
@@ -25,15 +26,15 @@ import net.minecraft.world.level.storage.ValueOutput
 import net.minecraft.world.ticks.ContainerSingleItem
 
 class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEntity(ModBlockEntities.COLLAR_CRAFTER_BE, worldPosition, blockState), ContainerSingleItem {
-    private var inventory: NonNullList<ItemStack> = NonNullList.withSize(1, ItemStack.EMPTY)
+     var inventory: NonNullList<ItemStack> = NonNullList.withSize(1, ItemStack.EMPTY)
 
     fun rightClick(player: ServerPlayer, hand: InteractionHand): InteractionResult {
-        if (player.getItemInHand(hand).`is`(ModItemTags.COLLARS)) {
-            return if (trySetCollarStack(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.PASS
+        return if (player.getItemInHand(hand).`is`(ModItemTags.COLLARS)) {
+            if (trySetCollarStack(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.PASS
         } else if (player.getItemInHand(hand).isEmpty) {
-            return if (tryTakeAwayCollarStack(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.PASS
+            if (tryTakeAwayCollarStack(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.PASS
         } else {
-            return if (tryCraftCollar(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.PASS
+            if (tryCraftCollar(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.PASS
         }
     }
 
@@ -61,8 +62,8 @@ class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEn
 
     private fun tryTakeAwayCollarStack(player: ServerPlayer, hand: InteractionHand): Boolean {
         if (inventory.first().isEmpty) return false
-        player.setItemInHand(hand, theItem)
-        theItem = ItemStack.EMPTY
+        player.setItemInHand(hand, theItem.copy())
+        clearContent()
         this.setChanged()
         return true
     }
@@ -75,7 +76,7 @@ class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEn
 
     override fun loadAdditional(input: ValueInput) {
         super.loadAdditional(input)
-
+        this.inventory.clear()
         ContainerHelper.loadAllItems(input, this.inventory)
     }
 
@@ -103,7 +104,12 @@ class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEn
     }
 
     override fun setTheItem(itemStack: ItemStack) {
+        inventory[0] = itemStack.copyWithCount(1)
         setChanged()
-        inventory.set(0, itemStack.copyWithCount(1))
+    }
+
+    override fun clearContent() {
+        inventory[0] = ItemStack.EMPTY
+        setChanged()
     }
 }

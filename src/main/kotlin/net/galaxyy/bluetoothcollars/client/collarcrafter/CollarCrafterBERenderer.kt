@@ -2,22 +2,17 @@ package net.galaxyy.bluetoothcollars.client.collarcrafter
 
 import com.mojang.blaze3d.vertex.PoseStack
 import com.mojang.math.Axis
-import com.mojang.math.Transformation
-import net.galaxyy.bluetoothcollars.BluetoothCollars
 import net.galaxyy.bluetoothcollars.items.blockentities.CollarCrafterBE
 import net.minecraft.client.renderer.SubmitNodeCollector
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer
 import net.minecraft.client.renderer.item.ItemModelResolver
-import net.minecraft.client.renderer.item.ItemStackRenderState.FoilType
 import net.minecraft.client.renderer.state.level.CameraRenderState
 import net.minecraft.client.renderer.texture.OverlayTexture
-import net.minecraft.client.resources.model.geometry.ItemQuads
 import net.minecraft.world.item.ItemDisplayContext
 import net.minecraft.world.phys.Vec3
 import org.joml.Matrix4f
-import org.joml.Matrix4fc
 
 class CollarCrafterBERenderer(context: BlockEntityRendererProvider.Context) : BlockEntityRenderer<CollarCrafterBE, CollarCrafterBERenderState> {
     val itemModelResolver: ItemModelResolver = context.itemModelResolver
