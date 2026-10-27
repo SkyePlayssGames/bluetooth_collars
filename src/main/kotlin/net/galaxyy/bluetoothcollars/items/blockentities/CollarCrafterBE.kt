@@ -3,6 +3,7 @@ package net.galaxyy.bluetoothcollars.items.blockentities
 import net.galaxyy.bluetoothcollars.datagen.recipe.CollarCrafterRecipeInput
 import net.galaxyy.bluetoothcollars.datagen.recipe.ModRecipeTypes
 import net.galaxyy.bluetoothcollars.items.itemdata.ModItemTags
+import net.galaxyy.bluetoothcollars.stats.ModStats
 import net.minecraft.core.BlockPos
 import net.minecraft.core.HolderLookup
 import net.minecraft.core.NonNullList
@@ -50,6 +51,7 @@ class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEn
         theItem = recipe.get().value.assemble(input)
         player.setItemInHand(hand, player.getItemInHand(hand).copyWithCount(player.getItemInHand(hand).count - 1))
         this.setChanged()
+        player.awardStat(ModStats.COLLAR_CRAFTER_CRAFTS)
         return true
     }
 

@@ -1,4 +1,4 @@
-package net.galaxyy.bluetoothcollars.datagen
+package net.galaxyy.bluetoothcollars.datagen.tag
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider
@@ -6,10 +6,9 @@ import net.galaxyy.bluetoothcollars.items.ModItems
 import net.galaxyy.bluetoothcollars.items.itemdata.ModItemTags
 import net.minecraft.core.HolderLookup
 import net.minecraft.tags.ItemTags
-import net.minecraft.world.item.Item
 import java.util.concurrent.CompletableFuture
 
-class TagDataGen(output: FabricPackOutput, lookup: CompletableFuture<HolderLookup.Provider>) : FabricTagsProvider.ItemTagsProvider(output, lookup)
+class ItemTagDataGen(output: FabricPackOutput, lookup: CompletableFuture<HolderLookup.Provider>) : FabricTagsProvider.ItemTagsProvider(output, lookup)
 {
     override fun addTags(registries: HolderLookup.Provider) {
         builder(ModItemTags.COLLARS)

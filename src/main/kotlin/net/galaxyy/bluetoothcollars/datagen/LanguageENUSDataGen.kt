@@ -60,6 +60,8 @@ class LanguageENUSDataGen(output: FabricPackOutput, lookup: CompletableFuture<Ho
         translationBuilder.add("sound.$MOD_ID.click", "Collar clicks")
         translationBuilder.add("sound.$MOD_ID.bell", "Collar rings")
 
+        translationBuilder.add("stat.$MOD_ID.collar_crafter_crafts", "Crafts with Collar Enhancer")
+
         translationBuilder.add("$MOD_ID.remote_range", "Remote Range")
         translationBuilder.add("gamerule.$MOD_ID.remote_range", "Range of a remote clicking")
 

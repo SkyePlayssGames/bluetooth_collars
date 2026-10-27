@@ -13,6 +13,7 @@ import net.galaxyy.bluetoothcollars.items.ModItems
 import net.galaxyy.bluetoothcollars.items.blockentities.ModBlockEntities
 import net.galaxyy.bluetoothcollars.items.itemdata.ModDataComponents
 import net.galaxyy.bluetoothcollars.sounds.ModSounds
+import net.galaxyy.bluetoothcollars.stats.ModStats
 import net.minecraft.core.component.DataComponents
 import net.minecraft.resources.Identifier
 import org.slf4j.LoggerFactory
@@ -33,6 +34,7 @@ object BluetoothCollars : ModInitializer {
 		ModTriggers.registerTriggers()
 		ModGameRules.registerGameRules()
 		ModRecipeTypes.registerRecipes()
+		ModStats.registerStats()
 
 		ServerTickEvents.START_SERVER_TICK.register(TickCollarsEvent())
 

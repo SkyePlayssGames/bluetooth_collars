@@ -3,10 +3,12 @@ package net.galaxyy.bluetoothcollars
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator
 import net.galaxyy.bluetoothcollars.datagen.AdvancementDataGen
+import net.galaxyy.bluetoothcollars.datagen.BlockLootTableDataGen
 import net.galaxyy.bluetoothcollars.datagen.LanguageENUSDataGen
 import net.galaxyy.bluetoothcollars.datagen.ModelDataGen
 import net.galaxyy.bluetoothcollars.datagen.recipe.RecipeDataGen
-import net.galaxyy.bluetoothcollars.datagen.TagDataGen
+import net.galaxyy.bluetoothcollars.datagen.tag.BlockTagDataGen
+import net.galaxyy.bluetoothcollars.datagen.tag.ItemTagDataGen
 
 object BluetoothCollarsDataGenerator : DataGeneratorEntrypoint {
 	override fun onInitializeDataGenerator(fabricDataGenerator: FabricDataGenerator) {
@@ -15,7 +17,9 @@ object BluetoothCollarsDataGenerator : DataGeneratorEntrypoint {
 		pack.addProvider(::RecipeDataGen)
 		pack.addProvider(::ModelDataGen)
 		pack.addProvider(::LanguageENUSDataGen)
-		pack.addProvider(::TagDataGen)
+		pack.addProvider(::ItemTagDataGen)
+		pack.addProvider(::BlockTagDataGen)
 		pack.addProvider(::AdvancementDataGen)
+		pack.addProvider(::BlockLootTableDataGen)
 	}
 }

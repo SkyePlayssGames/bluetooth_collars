@@ -41,6 +41,7 @@
   "modmenu.summaryTranslation.bluetooth_collars": "Collar your friends!",
   "sound.bluetooth_collars.bell": "Collar rings",
   "sound.bluetooth_collars.click": "Collar clicks",
+  "stat.bluetooth_collars.collar_crafter_crafts": "Crafts with Collar Enhancer",
   "tag.item.bluetooth_collars.collars": "Collars",
   "tag.item.bluetooth_collars.remotes": "Remotes"
 }
