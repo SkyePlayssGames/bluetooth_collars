@@ -3,6 +3,7 @@ package net.galaxyy.bluetoothcollars.datagen.recipe
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider
 import net.galaxyy.bluetoothcollars.BluetoothCollars.MOD_ID
+import net.galaxyy.bluetoothcollars.items.ModBlocks
 import net.galaxyy.bluetoothcollars.items.ModItems
 import net.galaxyy.bluetoothcollars.items.collars.AbstractCollar
 import net.galaxyy.bluetoothcollars.items.itemdata.AllOwnersDataComponent
@@ -65,6 +66,17 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
                     .define('c', Items.COPPER_CHAIN.weathering.unaffected)
                     .define('i', Items.COPPER_INGOT)
                     .unlockedBy(getHasName(Items.COPPER_INGOT), has(Items.COPPER_INGOT))
+                    .save(output)
+
+                shaped(RecipeCategory.TOOLS, ModBlocks.COLLAR_CRAFTER)
+                    .pattern("srs")
+                    .pattern("ici")
+                    .pattern("sis")
+                    .define('s', Items.SMOOTH_STONE)
+                    .define('r', Items.REDSTONE)
+                    .define('i', Items.IRON_INGOT)
+                    .define('c', Blocks.CRAFTING_TABLE)
+                    .unlockedBy(getHasName(Blocks.CRAFTING_TABLE), has(Blocks.CRAFTING_TABLE))
                     .save(output)
 
                 CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Blocks.BELL,
