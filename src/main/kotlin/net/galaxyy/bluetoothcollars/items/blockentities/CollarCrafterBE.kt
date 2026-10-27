@@ -39,6 +39,7 @@ class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEn
     }
 
     private fun tryCraftCollar(player: ServerPlayer, hand: InteractionHand): Boolean {
+        if (isEmpty) return false
         val input = CollarCrafterRecipeInput(
             player.getItemInHand(hand), theItem
         )
@@ -53,7 +54,7 @@ class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEn
     }
 
     private fun trySetCollarStack(player: ServerPlayer, hand: InteractionHand): Boolean {
-        if (!inventory.first().isEmpty) return false
+        if (!isEmpty) return false
         theItem = player.getItemInHand(hand)
         player.setItemInHand(hand, ItemStack.EMPTY)
         this.setChanged()
@@ -61,7 +62,7 @@ class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEn
     }
 
     private fun tryTakeAwayCollarStack(player: ServerPlayer, hand: InteractionHand): Boolean {
-        if (inventory.first().isEmpty) return false
+        if (isEmpty) return false
         player.setItemInHand(hand, theItem.copy())
         clearContent()
         this.setChanged()
