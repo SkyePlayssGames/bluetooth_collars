@@ -1,0 +1,9 @@
+{
+  "type": "bluetooth_collars:collar_crafting",
+  "ingredient": "minecraft:bell",
+  "output": {
+    "bluetooth_collars:bell": {
+      "bell": true
+    }
+  }
+}

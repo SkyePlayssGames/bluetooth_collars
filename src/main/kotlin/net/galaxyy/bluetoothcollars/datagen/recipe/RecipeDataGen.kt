@@ -2,6 +2,7 @@ package net.galaxyy.bluetoothcollars.datagen.recipe
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider
+import net.galaxyy.bluetoothcollars.BluetoothCollars.MOD_ID
 import net.galaxyy.bluetoothcollars.items.ModItems
 import net.galaxyy.bluetoothcollars.items.collars.AbstractCollar
 import net.galaxyy.bluetoothcollars.items.itemdata.AllOwnersDataComponent
@@ -23,6 +24,7 @@ import net.minecraft.world.item.crafting.Recipe
 import net.minecraft.world.item.enchantment.Enchantment
 import net.minecraft.world.item.enchantment.Enchantments
 import net.minecraft.world.item.enchantment.ItemEnchantments
+import net.minecraft.world.level.block.Blocks
 import java.util.concurrent.CompletableFuture
 
 class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFuture<HolderLookup.Provider>) : FabricRecipeProvider(output, registriesFuture) {
@@ -60,6 +62,11 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
                     .define('i', Items.COPPER_INGOT)
                     .unlockedBy(getHasName(Items.COPPER_INGOT), has(Items.COPPER_INGOT))
                     .save(output)
+
+                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Blocks.BELL,
+                    ModDataComponents.BELL, BellDataComponent(true)
+                ).unlockedBy(getHasName(Blocks.BELL), has(Blocks.BELL))
+                    .save(output, "$MOD_ID:bell_collar_crafting")
             }
 
             private fun makeRemoteRecipe(remote: Item, wool: Item, output: RecipeOutput) {

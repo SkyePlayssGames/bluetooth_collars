@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bell": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:bell"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "bluetooth_collars:bell_collar_crafting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bell"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bluetooth_collars:bell_collar_crafting"
+    ]
+  }
+}
