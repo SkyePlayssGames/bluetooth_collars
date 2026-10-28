@@ -1,0 +1,10 @@
+{
+  "type": "bluetooth_collars:collar_crafting",
+  "base": "#bluetooth_collars:remotes",
+  "ingredient": "minecraft:iron_ingot",
+  "output": {
+    "bluetooth_collars:double_range": {
+      "bool": true
+    }
+  }
+}

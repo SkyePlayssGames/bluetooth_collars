@@ -114,7 +114,7 @@ abstract class AbstractCollar(properties: Properties, val key: ResourceKey<Item>
             if (level.isClientSide) return InteractionResult.PASS
             var result: InteractionResult = InteractionResult.PASS
 
-            findCollars(level as ServerLevel, player?.blockPosition(), player).forEach { pair ->
+            findCollars(level as ServerLevel, player?.blockPosition(), player, player?.getItemInHand(hand)).forEach { pair ->
                 if (player!!.isShiftKeyDown) result = if ((pair.key.item as AbstractCollar).shiftRightClick(
                         player, level, blockPos,
                         pair.key, pair.value
@@ -124,8 +124,9 @@ abstract class AbstractCollar(properties: Properties, val key: ResourceKey<Item>
             return result
         }
 
-        fun findCollars(level: ServerLevel, blockPos: BlockPos?, player: Player?): HashMap<ItemStack, ServerPlayer> {
-            val clickerRange: Double = level.gameRules.get(ModGameRules.CLICKER_RANGE).toDouble()
+        fun findCollars(level: ServerLevel, blockPos: BlockPos?, player: Player?, remote: ItemStack?): HashMap<ItemStack, ServerPlayer> {
+            val clickerRange: Double = level.gameRules.get(ModGameRules.CLICKER_RANGE).toDouble() *
+                    (if (remote?.get(ModDataComponents.DOUBLE_RANGE)?.bool == true) 2 else 1)
             val result: HashMap<ItemStack, ServerPlayer> = HashMap()
 
             if (blockPos == null || player == null) return result

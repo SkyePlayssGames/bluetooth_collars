@@ -63,7 +63,12 @@ object ModDataComponents {
         id("extra_collar"),
         DataComponentType.builder<Boolean>().persistent(Codec.BOOL).build()
     )
-    // TODO: Add data component for extra necklace slot
+
+    val DOUBLE_RANGE: DataComponentType<DoubleRangeDataComponent> = Registry.register(
+        BuiltInRegistries.DATA_COMPONENT_TYPE,
+        id("double_range"),
+        DataComponentType.builder<DoubleRangeDataComponent>().persistent(DoubleRangeDataComponent.CODEC).build()
+    )
 
     fun registerDataComponents() {
         LOGGER.info("Registering Data Components for Bluetooth Collars")

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_diamond": {
+    "has_bell": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:diamond"
+            "items": "minecraft:bell"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipes": "bluetooth_collars:owner_all_collar_crafting"
+        "recipes": "bluetooth_collars:bell_collar_collar_crafting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_diamond"
+      "has_bell"
     ]
   ],
   "rewards": {
     "recipes": [
-      "bluetooth_collars:owner_all_collar_crafting"
+      "bluetooth_collars:bell_collar_collar_crafting"
     ]
   }
 }

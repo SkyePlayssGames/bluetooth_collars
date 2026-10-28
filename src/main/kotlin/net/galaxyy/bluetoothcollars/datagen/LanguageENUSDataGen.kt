@@ -43,6 +43,8 @@ class LanguageENUSDataGen(output: FabricPackOutput, lookup: CompletableFuture<Ho
 
         translationBuilder.add("$MOD_ID.tooltip.bell", "Bell")
 
+        translationBuilder.add("$MOD_ID.tooltip.doubled_range", "Doubled Range")
+
         translationBuilder.add("collar_tab.$MOD_ID", "Bluetooth Collars")
 
         translationBuilder.add("tag.item.$MOD_ID.collars", "Collars")

@@ -12,6 +12,7 @@
   "bluetooth_collars.overlay.click": "You hear your collar click!",
   "bluetooth_collars.remote_range": "Remote Range",
   "bluetooth_collars.tooltip.bell": "Bell",
+  "bluetooth_collars.tooltip.doubled_range": "Doubled Range",
   "bluetooth_collars.tooltip.owner": "- %s",
   "bluetooth_collars.tooltip.owners_all": "Owned by Everyone",
   "bluetooth_collars.tooltip.owners_none": "No Owners",

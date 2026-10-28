@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipes": "bluetooth_collars:extra_collar_collar_crafting"
+        "recipes": "bluetooth_collars:extra_collar_collar_collar_crafting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bluetooth_collars:extra_collar_collar_crafting"
+      "bluetooth_collars:extra_collar_collar_collar_crafting"
     ]
   }
 }
