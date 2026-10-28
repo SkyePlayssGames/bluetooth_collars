@@ -31,7 +31,7 @@ class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEn
      var inventory: NonNullList<ItemStack> = NonNullList.withSize(1, ItemStack.EMPTY)
 
     fun rightClick(player: ServerPlayer, hand: InteractionHand): InteractionResult {
-        return if (player.getItemInHand(hand).`is`(ModItemTags.COLLARS)) {
+        return if (isEmpty) {
             if (trySetCollarStack(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.CONSUME
         } else if (player.getItemInHand(hand).isEmpty) {
             if (tryTakeAwayCollarStack(player, hand)) InteractionResult.SUCCESS_SERVER else InteractionResult.CONSUME
@@ -58,8 +58,8 @@ class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEn
 
     private fun trySetCollarStack(player: ServerPlayer, hand: InteractionHand): Boolean {
         if (!isEmpty) return false
-        theItem = player.getItemInHand(hand)
-        player.setItemInHand(hand, ItemStack.EMPTY)
+        theItem = player.getItemInHand(hand).copyWithCount(1)
+        player.getItemInHand(hand).shrink(1)
         this.setChanged()
         return true
     }
