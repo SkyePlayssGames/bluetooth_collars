@@ -1,5 +1,6 @@
 {
   "type": "bluetooth_collars:collar_crafting",
+  "base": "#bluetooth_collars:collars",
   "ingredient": "minecraft:diamond",
   "output": {
     "bluetooth_collars:owner_all": {

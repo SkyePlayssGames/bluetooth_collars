@@ -17,14 +17,14 @@ import net.minecraft.world.item.crafting.RecipeSerializer
 import net.minecraft.world.item.crafting.RecipeType
 import net.minecraft.world.level.Level
 
-data class CollarCrafterRecipe(val inputPatch: Ingredient, val output: DataComponentPatch) : Recipe<CollarCrafterRecipeInput> {
+data class CollarCrafterRecipe(val inputPatch: Ingredient, val inputCollar: Ingredient, val output: DataComponentPatch) : Recipe<CollarCrafterRecipeInput> {
     override fun matches(
         input: CollarCrafterRecipeInput,
         level: Level
     ): Boolean {
         if (level.isClientSide) return false
 
-        return inputPatch.test(input.getItem(1))
+        return inputPatch.test(input.getItem(1)) && inputCollar.test(input.getItem(0)) && testComponentRedundancy(input)
     }
 
     override fun assemble(input: CollarCrafterRecipeInput): ItemStack {
@@ -58,14 +58,23 @@ data class CollarCrafterRecipe(val inputPatch: Ingredient, val output: DataCompo
         return RecipeBookCategories.CRAFTING_EQUIPMENT
     }
 
+    private fun testComponentRedundancy(input: CollarCrafterRecipeInput): Boolean {
+        val testItem = input.getItem(0).copy()
+        val testPatch = input.getItem(0).copy()
+        testPatch.applyComponents(output)
+        return testItem.components != testPatch.components
+    }
+
     companion object {
         val CODEC: MapCodec<CollarCrafterRecipe> = RecordCodecBuilder.mapCodec { instance -> instance.group(
             Ingredient.CODEC.fieldOf("ingredient").forGetter(CollarCrafterRecipe::inputPatch),
+            Ingredient.CODEC.fieldOf("base").forGetter(CollarCrafterRecipe::inputCollar),
             DataComponentPatch.CODEC.fieldOf("output").forGetter(CollarCrafterRecipe::output)
         ).apply(instance, ::CollarCrafterRecipe) }
 
         val STREAM_CODEC: StreamCodec<RegistryFriendlyByteBuf, CollarCrafterRecipe> = StreamCodec.composite(
             Ingredient.CONTENTS_STREAM_CODEC, CollarCrafterRecipe::inputPatch,
+            Ingredient.CONTENTS_STREAM_CODEC, CollarCrafterRecipe::inputCollar,
             DataComponentPatch.STREAM_CODEC, CollarCrafterRecipe::output,
             ::CollarCrafterRecipe
         )

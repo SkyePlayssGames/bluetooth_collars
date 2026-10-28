@@ -9,9 +9,11 @@ import net.galaxyy.bluetoothcollars.items.collars.AbstractCollar
 import net.galaxyy.bluetoothcollars.items.itemdata.AllOwnersDataComponent
 import net.galaxyy.bluetoothcollars.items.itemdata.BellDataComponent
 import net.galaxyy.bluetoothcollars.items.itemdata.ModDataComponents
+import net.galaxyy.bluetoothcollars.items.itemdata.ModItemTags
 import net.minecraft.advancements.Advancement
 import net.minecraft.core.Holder
 import net.minecraft.core.HolderLookup
+import net.minecraft.core.HolderSet
 import net.minecraft.core.component.DataComponentPatch
 import net.minecraft.core.component.DataComponents
 import net.minecraft.core.registries.Registries
@@ -39,6 +41,9 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
             override fun buildRecipes() {
                 val itemLookup: HolderLookup.RegistryLookup<Item> = registries.lookupOrThrow(Registries.ITEM)
                 val enchantmentLookup: HolderLookup.RegistryLookup<Enchantment> = registries.lookupOrThrow(Registries.ENCHANTMENT)
+
+                val collarHolderSet: HolderSet<Item> = itemLookup.getOrThrow(ModItemTags.COLLARS)
+
                 val curseOfBinding: ItemEnchantments.Mutable = ItemEnchantments.Mutable(ItemEnchantments.EMPTY)
                 curseOfBinding.set(enchantmentLookup.getOrThrow(Enchantments.BINDING_CURSE), 1)
 
@@ -79,25 +84,25 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
                     .unlockedBy(getHasName(Blocks.CRAFTING_TABLE), has(Blocks.CRAFTING_TABLE))
                     .save(output)
 
-                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Blocks.BELL,
+                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Blocks.BELL, collarHolderSet,
                     ModDataComponents.BELL, BellDataComponent(true)
                 )
                     .unlockedBy(getHasName(Blocks.BELL), has(Blocks.BELL))
                     .save(output, "$MOD_ID:bell_collar_crafting")
 
-                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Items.DIAMOND,
+                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Items.DIAMOND, collarHolderSet,
                     ModDataComponents.OWNER_ALL, AllOwnersDataComponent(true)
                 )
                     .unlockedBy(getHasName(Items.DIAMOND), has(Items.DIAMOND))
                     .save(output, "$MOD_ID:owner_all_collar_crafting")
 
-                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Blocks.COBBLESTONE,
+                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Blocks.COBBLESTONE, collarHolderSet,
                     ModDataComponents.EXTRA_COLLAR, true
                 )
                     .unlockedBy(getHasName(Blocks.COBBLESTONE), has(Blocks.COBBLESTONE))
                     .save(output, "$MOD_ID:extra_collar_collar_crafting")
 
-                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, ModItems.LOCK,
+                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, ModItems.LOCK, collarHolderSet,
                     DataComponents.ENCHANTMENTS, curseOfBinding.toImmutable()
                 )
                     .unlockedBy(getHasName(ModItems.LOCK), has(ModItems.LOCK))
