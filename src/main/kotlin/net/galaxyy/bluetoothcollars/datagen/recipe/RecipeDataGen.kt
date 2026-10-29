@@ -3,6 +3,7 @@ package net.galaxyy.bluetoothcollars.datagen.recipe
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider
 import net.galaxyy.bluetoothcollars.BluetoothCollars.MOD_ID
+import net.galaxyy.bluetoothcollars.datagen.recipe.collarcrafter.CollarCrafterRecipeBuilder
 import net.galaxyy.bluetoothcollars.items.ModBlocks
 import net.galaxyy.bluetoothcollars.items.ModItems
 import net.galaxyy.bluetoothcollars.items.collars.AbstractCollar
@@ -15,7 +16,6 @@ import net.minecraft.advancements.Advancement
 import net.minecraft.core.Holder
 import net.minecraft.core.HolderLookup
 import net.minecraft.core.HolderSet
-import net.minecraft.core.component.DataComponentPatch
 import net.minecraft.core.component.DataComponents
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.recipes.RecipeCategory
@@ -23,7 +23,6 @@ import net.minecraft.data.recipes.RecipeOutput
 import net.minecraft.data.recipes.RecipeProvider
 import net.minecraft.data.worldgen.BootstrapContext
 import net.minecraft.world.item.Item
-import net.minecraft.world.item.ItemStackTemplate
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.Recipe
 import net.minecraft.world.item.enchantment.Enchantment
@@ -43,8 +42,7 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
                 val itemLookup: HolderLookup.RegistryLookup<Item> = registries.lookupOrThrow(Registries.ITEM)
                 val enchantmentLookup: HolderLookup.RegistryLookup<Enchantment> = registries.lookupOrThrow(Registries.ENCHANTMENT)
 
-                val collarHolderSet: HolderSet<Item> = itemLookup.getOrThrow(ModItemTags.COLLARS)
-                val remoteHolderSet: HolderSet<Item> = itemLookup.getOrThrow(ModItemTags.REMOTES)
+                val collarCrafterBuilder: CollarCrafterRecipeBuilder.Companion.Builder = CollarCrafterRecipeBuilder.Companion.Builder(itemLookup)
 
                 val curseOfBinding: ItemEnchantments.Mutable = ItemEnchantments.Mutable(ItemEnchantments.EMPTY)
                 curseOfBinding.set(enchantmentLookup.getOrThrow(Enchantments.BINDING_CURSE), 1)
@@ -86,31 +84,31 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
                     .unlockedBy(getHasName(Blocks.CRAFTING_TABLE), has(Blocks.CRAFTING_TABLE))
                     .save(output)
 
-                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Blocks.BELL, collarHolderSet,
+                collarCrafterBuilder.create(RecipeCategory.MISC, Blocks.BELL, ModItemTags.COLLARS,
                     ModDataComponents.BELL, BellDataComponent(true)
                 )
                     .unlockedBy(getHasName(Blocks.BELL), has(Blocks.BELL))
                     .save(output, "$MOD_ID:bell_collar_collar_crafting")
 
-                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Items.DIAMOND, collarHolderSet,
+                collarCrafterBuilder.create(RecipeCategory.MISC, Items.DIAMOND, ModItemTags.COLLARS,
                     ModDataComponents.OWNER_ALL, AllOwnersDataComponent(true)
                 )
                     .unlockedBy(getHasName(Items.DIAMOND), has(Items.DIAMOND))
                     .save(output, "$MOD_ID:owner_all_collar_collar_crafting")
 
-                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Blocks.COBBLESTONE, collarHolderSet,
+                collarCrafterBuilder.create(RecipeCategory.MISC, Blocks.COBBLESTONE, ModItemTags.COLLARS,
                     ModDataComponents.EXTRA_COLLAR, true
                 )
                     .unlockedBy(getHasName(Blocks.COBBLESTONE), has(Blocks.COBBLESTONE))
                     .save(output, "$MOD_ID:extra_collar_collar_collar_crafting")
 
-                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, ModItems.LOCK, collarHolderSet,
+                collarCrafterBuilder.create(RecipeCategory.MISC, ModItems.LOCK, ModItemTags.COLLARS,
                     DataComponents.ENCHANTMENTS, curseOfBinding.toImmutable()
                 )
                     .unlockedBy(getHasName(ModItems.LOCK), has(ModItems.LOCK))
                     .save(output, "$MOD_ID:lock_collar_collar_crafting")
 
-                CollarCrafterRecipeBuilder.create(RecipeCategory.MISC, Items.IRON_INGOT, remoteHolderSet,
+                collarCrafterBuilder.create(RecipeCategory.MISC, Items.IRON_INGOT, ModItemTags.REMOTES,
                     ModDataComponents.DOUBLE_RANGE, DoubleRangeDataComponent(true)
                 )
                     .unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))

@@ -1,6 +1,7 @@
-package net.galaxyy.bluetoothcollars.datagen.recipe
+package net.galaxyy.bluetoothcollars.datagen.recipe.collarcrafter
 
 import net.minecraft.advancements.triggers.Criterion
+import net.minecraft.core.HolderLookup
 import net.minecraft.core.HolderSet
 import net.minecraft.core.component.DataComponentPatch
 import net.minecraft.core.component.DataComponentType
@@ -49,15 +50,21 @@ class CollarCrafterRecipeBuilder(
         output.accept(location, recipe, recipeUnlockAdvancementBuilder.build(output, location, recipeCategory))
     }
 
-    companion object {
-        fun <T : Any> create(recipeCategory: RecipeCategory, ingredient: ItemLike, base: ItemLike, type: DataComponentType<T>, value: T): CollarCrafterRecipeBuilder =
-            CollarCrafterRecipeBuilder(recipeCategory, Ingredient.of(ingredient), Ingredient.of(base),
-                DataComponentPatch.builder().set(type, value).build()
-            )
+    override fun save(output: RecipeOutput) {
+        throw NotImplementedError()
+    }
 
-        fun <T : Any> create(recipeCategory: RecipeCategory, ingredient: ItemLike, base: HolderSet<Item>, type: DataComponentType<T>, value: T): CollarCrafterRecipeBuilder =
-            CollarCrafterRecipeBuilder(recipeCategory, Ingredient.of(ingredient), Ingredient.of(base),
-                DataComponentPatch.builder().set(type, value).build()
-            )
+    companion object {
+        class Builder(val itemGetter: HolderLookup.RegistryLookup<Item>) {
+            fun <T : Any> create(recipeCategory: RecipeCategory, ingredient: ItemLike, base: ItemLike, type: DataComponentType<T>, value: T): CollarCrafterRecipeBuilder =
+                CollarCrafterRecipeBuilder(recipeCategory, Ingredient.of(ingredient), Ingredient.of(base),
+                    DataComponentPatch.builder().set(type, value).build()
+                )
+
+            fun <T : Any> create(recipeCategory: RecipeCategory, ingredient: ItemLike, base: TagKey<Item>, type: DataComponentType<T>, value: T): CollarCrafterRecipeBuilder =
+                CollarCrafterRecipeBuilder(recipeCategory, Ingredient.of(ingredient), Ingredient.of(itemGetter.getOrThrow(base)),
+                    DataComponentPatch.builder().set(type, value).build()
+                )
+        }
     }
 }

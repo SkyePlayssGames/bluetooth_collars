@@ -1,10 +1,8 @@
 package net.galaxyy.bluetoothcollars.items.blockentities
 
-import net.galaxyy.bluetoothcollars.datagen.recipe.CollarCrafterRecipeInput
+import net.galaxyy.bluetoothcollars.datagen.recipe.collarcrafter.CollarCrafterRecipeInput
 import net.galaxyy.bluetoothcollars.datagen.recipe.ModRecipeTypes
-import net.galaxyy.bluetoothcollars.items.itemdata.ModItemTags
 import net.galaxyy.bluetoothcollars.stats.ModStats
-import net.minecraft.client.telemetry.TelemetryProperty.GameMode
 import net.minecraft.core.BlockPos
 import net.minecraft.core.HolderLookup
 import net.minecraft.core.NonNullList
@@ -20,7 +18,6 @@ import net.minecraft.world.InteractionResult
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.level.block.Block
-import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.entity.BlockEntity
 import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.level.storage.ValueInput

@@ -1,4 +1,4 @@
-package net.galaxyy.bluetoothcollars.datagen.recipe
+package net.galaxyy.bluetoothcollars.datagen.recipe.collarcrafter
 
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.crafting.RecipeInput

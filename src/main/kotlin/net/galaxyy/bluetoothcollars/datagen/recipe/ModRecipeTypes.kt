@@ -2,6 +2,7 @@ package net.galaxyy.bluetoothcollars.datagen.recipe
 
 import net.galaxyy.bluetoothcollars.BluetoothCollars.LOGGER
 import net.galaxyy.bluetoothcollars.BluetoothCollars.id
+import net.galaxyy.bluetoothcollars.datagen.recipe.collarcrafter.CollarCrafterRecipe
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.world.item.crafting.RecipeSerializer
