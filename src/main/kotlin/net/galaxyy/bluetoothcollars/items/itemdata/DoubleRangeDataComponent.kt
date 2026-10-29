@@ -20,7 +20,7 @@ data class DoubleRangeDataComponent(val bool: Boolean) : TooltipProvider {
     ) {
         if (bool) {
             consumer.accept(Component.translatable("$MOD_ID.tooltip.doubled_range")
-                .withStyle(ChatFormatting.LIGHT_PURPLE, ChatFormatting.ITALIC))
+                .withStyle(ChatFormatting.LIGHT_PURPLE))
         }
     }
 

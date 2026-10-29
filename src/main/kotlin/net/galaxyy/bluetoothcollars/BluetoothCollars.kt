@@ -41,6 +41,7 @@ object BluetoothCollars : ModInitializer {
 		ItemComponentTooltipProviderRegistry.addAfter(DataComponents.DAMAGE, ModDataComponents.BELL)
 		ItemComponentTooltipProviderRegistry.addAfter(ModDataComponents.BELL, ModDataComponents.OWNER)
 		ItemComponentTooltipProviderRegistry.addAfter(ModDataComponents.OWNER, ModDataComponents.OWNER_ALL)
+		ItemComponentTooltipProviderRegistry.addAfter(ModDataComponents.OWNER_ALL, ModDataComponents.DOUBLE_RANGE)
 	}
 
 	fun id(path: String): Identifier
