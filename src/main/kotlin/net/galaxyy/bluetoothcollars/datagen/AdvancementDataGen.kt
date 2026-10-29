@@ -5,7 +5,10 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider
 import net.galaxyy.bluetoothcollars.BluetoothCollars.MOD_ID
 import net.galaxyy.bluetoothcollars.BluetoothCollars.id
 import net.galaxyy.bluetoothcollars.events.CollarActivateTrigger
+import net.galaxyy.bluetoothcollars.events.CollarCrafterCraftTrigger
+import net.galaxyy.bluetoothcollars.events.ModTriggers
 import net.galaxyy.bluetoothcollars.events.TrinketEquipTrigger
+import net.galaxyy.bluetoothcollars.items.ModBlocks
 import net.galaxyy.bluetoothcollars.items.ModItems
 import net.galaxyy.bluetoothcollars.items.itemdata.AllOwnersDataComponent
 import net.galaxyy.bluetoothcollars.items.itemdata.ModDataComponents
@@ -17,6 +20,7 @@ import net.minecraft.advancements.predicates.DataComponentMatchers
 import net.minecraft.advancements.predicates.EnchantmentPredicate
 import net.minecraft.advancements.predicates.ItemPredicate
 import net.minecraft.advancements.predicates.MinMaxBounds
+import net.minecraft.advancements.triggers.CriteriaTriggers
 import net.minecraft.advancements.triggers.InventoryChangeTrigger
 import net.minecraft.core.HolderLookup
 import net.minecraft.core.component.DataComponentExactPredicate
@@ -105,5 +109,17 @@ class AdvancementDataGen(output: FabricPackOutput, registryLookup: CompletableFu
             ))
             .parent(getCollared)
             .save(consumer, id("experimental"))
+
+        val upgrading: AdvancementHolder = Advancement.Builder.advancement()
+            .display(
+                ModBlocks.COLLAR_CRAFTER.asItem(),
+                Component.translatable("advancement.$MOD_ID.upgrading.name"),
+                Component.translatable("advancement.$MOD_ID.upgrading.description"),
+                AdvancementType.TASK,
+                true, true, false
+            )
+            .addCriterion("collar_crafter", CollarCrafterCraftTrigger.TriggerInstance.create())
+            .parent(getCollared)
+            .save(consumer, id("upgrading"))
     }
 }

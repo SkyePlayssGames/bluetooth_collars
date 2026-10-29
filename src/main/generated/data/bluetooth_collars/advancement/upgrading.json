@@ -1,0 +1,25 @@
+{
+  "parent": "bluetooth_collars:get_collared",
+  "criteria": {
+    "collar_crafter": {
+      "trigger": "minecraft:collar_crafter_craft"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.bluetooth_collars.upgrading.description"
+    },
+    "icon": {
+      "id": "bluetooth_collars:collar_crafter"
+    },
+    "title": {
+      "translate": "advancement.bluetooth_collars.upgrading.name"
+    }
+  },
+  "requirements": [
+    [
+      "collar_crafter"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

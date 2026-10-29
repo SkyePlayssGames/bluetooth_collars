@@ -58,6 +58,8 @@ class LanguageENUSDataGen(output: FabricPackOutput, lookup: CompletableFuture<Ho
         translationBuilder.add("advancement.$MOD_ID.experimental.description", "Experiment with all the effects!")
         translationBuilder.add("advancement.$MOD_ID.universal_toy.name", "Universal Toy")
         translationBuilder.add("advancement.$MOD_ID.universal_toy.description", "Wear a cursed universal collar!")
+        translationBuilder.add("advancement.$MOD_ID.upgrading.name", "Upgrading")
+        translationBuilder.add("advancement.$MOD_ID.upgrading.description", "Upgrade an item on the Collar Enhancer!")
 
         translationBuilder.add("sound.$MOD_ID.click", "Collar clicks")
         translationBuilder.add("sound.$MOD_ID.bell", "Collar rings")

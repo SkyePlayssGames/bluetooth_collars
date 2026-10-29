@@ -7,6 +7,8 @@
   "advancement.bluetooth_collars.get_collared.name": "Get Collared!",
   "advancement.bluetooth_collars.universal_toy.description": "Wear a cursed universal collar!",
   "advancement.bluetooth_collars.universal_toy.name": "Universal Toy",
+  "advancement.bluetooth_collars.upgrading.description": "Upgrade an item on the Collar Enhancer!",
+  "advancement.bluetooth_collars.upgrading.name": "Upgrading",
   "block.bluetooth_collars.collar_crafter": "Collar Enhancer",
   "bluetooth_collars.modmenu_link.source": "Source",
   "bluetooth_collars.overlay.click": "You hear your collar click!",

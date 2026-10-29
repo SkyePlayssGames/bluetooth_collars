@@ -14,5 +14,10 @@ object ModTriggers {
         "collar_activate", CollarActivateTrigger()
     )
 
+    val COLLAR_CRAFTER_CRAFT_TRIGGER: CollarCrafterCraftTrigger = Registry.register(
+        BuiltInRegistries.TRIGGER_TYPES,
+        "collar_crafter_craft", CollarCrafterCraftTrigger()
+    )
+
     fun registerTriggers() = LOGGER.info("Registering Advancement Triggers for Bluetooth Collars")
 }
