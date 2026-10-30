@@ -62,16 +62,6 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
                 makeCollarRecipes(ModItems.BLINDING_COLLAR, Items.WOOL.black, output, enchantmentLookup)
                 makeCollarRecipes(ModItems.FROZEN_COLLAR, Items.WOOL.white, output, enchantmentLookup)
 
-                shaped(RecipeCategory.MISC, ModItems.LOCK_UP)
-                    .pattern("ncn")
-                    .pattern("c c")
-                    .pattern("iii")
-                    .define('n', Items.COPPER_NUGGET)
-                    .define('c', Items.COPPER_CHAIN.weathering.unaffected)
-                    .define('i', Items.COPPER_INGOT)
-                    .unlockedBy(getHasName(Items.COPPER_INGOT), has(Items.COPPER_INGOT))
-                    .save(output)
-
                 shaped(RecipeCategory.TOOLS, ModBlocks.COLLAR_CRAFTER)
                     .pattern("srs")
                     .pattern("ici")
