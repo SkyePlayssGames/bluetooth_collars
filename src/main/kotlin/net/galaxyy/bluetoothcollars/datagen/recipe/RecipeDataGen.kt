@@ -11,11 +11,10 @@ import net.galaxyy.bluetoothcollars.items.itemdata.AllOwnersDataComponent
 import net.galaxyy.bluetoothcollars.items.itemdata.BellDataComponent
 import net.galaxyy.bluetoothcollars.items.itemdata.DoubleRangeDataComponent
 import net.galaxyy.bluetoothcollars.items.itemdata.ModDataComponents
-import net.galaxyy.bluetoothcollars.items.itemdata.ModItemTags
+import net.galaxyy.bluetoothcollars.datagen.tag.ModItemTags
 import net.minecraft.advancements.Advancement
 import net.minecraft.core.Holder
 import net.minecraft.core.HolderLookup
-import net.minecraft.core.HolderSet
 import net.minecraft.core.component.DataComponents
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.recipes.RecipeCategory

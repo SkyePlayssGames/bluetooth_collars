@@ -5,9 +5,8 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents
 import net.galaxyy.bluetoothcollars.items.ModItems
 import net.galaxyy.bluetoothcollars.items.collars.AbstractCollar
 import net.galaxyy.bluetoothcollars.items.itemdata.ModDataComponents
-import net.galaxyy.bluetoothcollars.items.itemdata.ModItemTags
+import net.galaxyy.bluetoothcollars.datagen.tag.ModItemTags
 import net.galaxyy.bluetoothcollars.items.itemdata.OwnerDataComponent
-import net.minecraft.resources.Identifier
 import net.minecraft.server.MinecraftServer
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.effect.MobEffects

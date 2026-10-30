@@ -4,6 +4,8 @@ import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents
 import net.fabricmc.fabric.api.item.v1.ItemComponentTooltipProviderRegistry
 import net.galaxyy.bluetoothcollars.datagen.recipe.ModRecipeTypes
+import net.galaxyy.bluetoothcollars.datagen.villager.ModVillagerTrades
+import net.galaxyy.bluetoothcollars.datagen.villager.ModVillagers
 import net.galaxyy.bluetoothcollars.events.ModTriggers
 import net.galaxyy.bluetoothcollars.events.TickCollarsEvent
 import net.galaxyy.bluetoothcollars.gamerules.ModGameRules
@@ -35,6 +37,8 @@ object BluetoothCollars : ModInitializer {
 		ModGameRules.registerGameRules()
 		ModRecipeTypes.registerRecipes()
 		ModStats.registerStats()
+		ModVillagers.registerVillagers()
+		ModVillagerTrades.registerVillagerTrades()
 
 		ServerTickEvents.START_SERVER_TICK.register(TickCollarsEvent())
 

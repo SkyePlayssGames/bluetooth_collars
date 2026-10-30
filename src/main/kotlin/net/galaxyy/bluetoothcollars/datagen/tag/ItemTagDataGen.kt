@@ -3,7 +3,6 @@ package net.galaxyy.bluetoothcollars.datagen.tag
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider
 import net.galaxyy.bluetoothcollars.items.ModItems
-import net.galaxyy.bluetoothcollars.items.itemdata.ModItemTags
 import net.minecraft.core.HolderLookup
 import net.minecraft.tags.ItemTags
 import java.util.concurrent.CompletableFuture
