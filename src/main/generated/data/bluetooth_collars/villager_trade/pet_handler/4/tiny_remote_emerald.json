@@ -6,7 +6,7 @@
   "max_uses": 3,
   "reputation_discount": 0.05,
   "wants": {
-    "id": "bluetooth_collars:tied_collar"
+    "id": "bluetooth_collars:tiny_remote"
   },
-  "xp": 12
+  "xp": 35
 }

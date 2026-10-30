@@ -1,6 +1,6 @@
 {
   "gives": {
-    "id": "minecraft:bell"
+    "id": "bluetooth_collars:bell_upgrade"
   },
   "reputation_discount": 0.05,
   "wants": {

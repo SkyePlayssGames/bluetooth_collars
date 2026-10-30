@@ -24,7 +24,10 @@ object ModVillagers {
     val PET_HANDLER: VillagerProfession = registerVillagerProfession(
         "pet_handler", "Pet Handler", PET_HANDLER_POI_KEY, SoundEvents.NOTE_BLOCK_BELL.value(), Int2ObjectMap.ofEntries(
             Int2ObjectMap.entry(1, ModTradeSets.PET_HANDLER_1),
-            Int2ObjectMap.entry(2, ModTradeSets.PET_HANDLER_2)
+            Int2ObjectMap.entry(2, ModTradeSets.PET_HANDLER_2),
+            Int2ObjectMap.entry(3, ModTradeSets.PET_HANDLER_3),
+            Int2ObjectMap.entry(4, ModTradeSets.PET_HANDLER_4),
+            Int2ObjectMap.entry(5, ModTradeSets.PET_HANDLER_5)
         )
     )
 

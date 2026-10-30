@@ -1,0 +1,11 @@
+{
+  "gives": {
+    "id": "bluetooth_collars:lock"
+  },
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 6,
+    "id": "minecraft:emerald"
+  },
+  "xp": 12
+}

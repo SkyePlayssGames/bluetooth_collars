@@ -19,10 +19,16 @@ import java.util.Optional
 object ModTradeSets {
     val PET_HANDLER_1: ResourceKey<TradeSet> = create("pet_handler/level_1")
     val PET_HANDLER_2: ResourceKey<TradeSet> = create("pet_handler/level_2")
+    val PET_HANDLER_3: ResourceKey<TradeSet> = create("pet_handler/level_3")
+    val PET_HANDLER_4: ResourceKey<TradeSet> = create("pet_handler/level_4")
+    val PET_HANDLER_5: ResourceKey<TradeSet> = create("pet_handler/level_5")
 
     fun bootstrap(context: BootstrapContext<TradeSet>) {
         register(context, PET_HANDLER_1, ModVillagerTradeTags.PET_HANDLER_1)
         register(context, PET_HANDLER_2, ModVillagerTradeTags.PET_HANDLER_2)
+        register(context, PET_HANDLER_3, ModVillagerTradeTags.PET_HANDLER_3, 4)
+        register(context, PET_HANDLER_4, ModVillagerTradeTags.PET_HANDLER_4)
+        register(context, PET_HANDLER_5, ModVillagerTradeTags.PET_HANDLER_5, 1)
     }
 
     private fun create(id: String): ResourceKey<TradeSet> {
@@ -31,6 +37,10 @@ object ModTradeSets {
 
     fun register(context: BootstrapContext<TradeSet>, key: ResourceKey<TradeSet>, tagKey: TagKey<VillagerTrade>): Holder.Reference<TradeSet> {
         return register(context, key, tagKey, ContextIntProviders.exactly(2))
+    }
+
+    fun register(context: BootstrapContext<TradeSet>, key: ResourceKey<TradeSet>, tagKey: TagKey<VillagerTrade>, number: Int): Holder.Reference<TradeSet> {
+        return register(context, key, tagKey, ContextIntProviders.exactly(number))
     }
 
     fun register(context: BootstrapContext<TradeSet>, key: ResourceKey<TradeSet>, tagKey: TagKey<VillagerTrade>, number: Holder<ContextIntProvider>): Holder.Reference<TradeSet> {

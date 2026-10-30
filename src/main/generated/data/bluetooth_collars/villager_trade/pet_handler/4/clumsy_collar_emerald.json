@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "count": 4,
+    "id": "minecraft:emerald"
+  },
+  "max_uses": 3,
+  "reputation_discount": 0.05,
+  "wants": {
+    "id": "bluetooth_collars:clumsy_collar"
+  },
+  "xp": 35
+}

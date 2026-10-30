@@ -12,8 +12,33 @@ class VillagerTradeTagsDataGen(output: FabricPackOutput, registryLookupFuture: C
     override fun addTags(registries: HolderLookup.Provider) {
         builder(ModVillagerTradeTags.PET_HANDLER_1)
             .add(ModVillagerTrades.PET_HANDLER_1_EMERALD_BELL_UP)
-            .add(ModVillagerTrades.PET_HANDLER_1_GOLD_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_1_WHITE_WOOL_EMERALD)
+
         builder(ModVillagerTradeTags.PET_HANDLER_2)
-            .add(ModVillagerTrades.PET_HANDLER_2_COLLAR_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_2_COPPER_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_2_EMERALD_LOCK_UP)
+
+        builder(ModVillagerTradeTags.PET_HANDLER_3)
+            .add(ModVillagerTrades.PET_HANDLER_3_EMERALD_UNI_UP)
+            .add(ModVillagerTrades.PET_HANDLER_3_EMERALD_DOUBLE_RANGE_UP)
+
+        builder(ModVillagerTradeTags.PET_HANDLER_4)
+            .add(ModVillagerTrades.PET_HANDLER_4_BLINDING_COLLAR_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_4_CRAWL_COLLAR_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_4_CLUMSY_COLLAR_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_4_FROZEN_COLLAR_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_4_PAW_COLLAR_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_4_TIED_DOWN_COLLAR_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_4_TINY_COLLAR_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_4_BLINDING_REMOTE_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_4_CRAWL_REMOTE_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_4_CLUMSY_REMOTE_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_4_FROZEN_REMOTE_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_4_PAW_REMOTE_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_4_TIED_DOWN_REMOTE_EMERALD)
+            .add(ModVillagerTrades.PET_HANDLER_4_TINY_REMOTE_EMERALD)
+
+        builder(ModVillagerTradeTags.PET_HANDLER_5)
+            .add(ModVillagerTrades.PET_HANDLER_5_EMERALD_EXTRA_COLLAR_UP)
     }
 }

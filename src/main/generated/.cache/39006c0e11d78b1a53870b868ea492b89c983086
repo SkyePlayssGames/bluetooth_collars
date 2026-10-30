@@ -1,3 +1,6 @@
 // 26.3	-999999999-01-01T00:00:00	Bluetooth Collars/Tags for minecraft:villager_trade
-847022f8839408c70f818f7198a276364a941d37 data/bluetooth_collars/tags/villager_trade/pet_handler/level_1.json
-0b4ae487e1bf3cd78bf7a3f051c1f7b7415fdc99 data/bluetooth_collars/tags/villager_trade/pet_handler/level_2.json
+ef90f39eaa634541abfdcb03b733cf53531bd175 data/bluetooth_collars/tags/villager_trade/pet_handler/level_1.json
+e0f342d2e907977deb953facc4b0cdc036a8d534 data/bluetooth_collars/tags/villager_trade/pet_handler/level_2.json
+bf53dd741e3bb3a38fefdf4188462520cea2d0a7 data/bluetooth_collars/tags/villager_trade/pet_handler/level_3.json
+4092aed97f97cf265fcf769b951c3cd3942a1c54 data/bluetooth_collars/tags/villager_trade/pet_handler/level_4.json
+c99bae015e503e8f9e566474d867876c9060bc5a data/bluetooth_collars/tags/villager_trade/pet_handler/level_5.json
