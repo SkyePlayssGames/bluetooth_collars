@@ -62,7 +62,7 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
                 makeCollarRecipes(ModItems.BLINDING_COLLAR, Items.WOOL.black, output, enchantmentLookup)
                 makeCollarRecipes(ModItems.FROZEN_COLLAR, Items.WOOL.white, output, enchantmentLookup)
 
-                shaped(RecipeCategory.MISC, ModItems.LOCK)
+                shaped(RecipeCategory.MISC, ModItems.LOCK_UP)
                     .pattern("ncn")
                     .pattern("c c")
                     .pattern("iii")
@@ -83,34 +83,34 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
                     .unlockedBy(getHasName(Blocks.CRAFTING_TABLE), has(Blocks.CRAFTING_TABLE))
                     .save(output)
 
-                collarCrafterBuilder.create(RecipeCategory.MISC, Blocks.BELL, ModItemTags.COLLARS,
+                collarCrafterBuilder.create(RecipeCategory.MISC, ModItems.BELL_UP, ModItemTags.COLLARS,
                     ModDataComponents.BELL, BellDataComponent(true)
                 )
-                    .unlockedBy(getHasName(Blocks.BELL), has(Blocks.BELL))
+                    .unlockedBy(getHasName(ModItems.BELL_UP), has(ModItems.BELL_UP))
                     .save(output, "$MOD_ID:bell_collar_collar_crafting")
 
-                collarCrafterBuilder.create(RecipeCategory.MISC, Items.DIAMOND, ModItemTags.COLLARS,
+                collarCrafterBuilder.create(RecipeCategory.MISC, ModItems.UNI_UP, ModItemTags.COLLARS,
                     ModDataComponents.OWNER_ALL, AllOwnersDataComponent(true)
                 )
-                    .unlockedBy(getHasName(Items.DIAMOND), has(Items.DIAMOND))
+                    .unlockedBy(getHasName(ModItems.UNI_UP), has(ModItems.UNI_UP))
                     .save(output, "$MOD_ID:owner_all_collar_collar_crafting")
 
-                collarCrafterBuilder.create(RecipeCategory.MISC, Blocks.COBBLESTONE, ModItemTags.COLLARS,
+                collarCrafterBuilder.create(RecipeCategory.MISC, ModItems.EXTRA_COLLAR_UP, ModItemTags.COLLARS,
                     ModDataComponents.EXTRA_COLLAR, true
                 )
-                    .unlockedBy(getHasName(Blocks.COBBLESTONE), has(Blocks.COBBLESTONE))
+                    .unlockedBy(getHasName(ModItems.EXTRA_COLLAR_UP), has(ModItems.EXTRA_COLLAR_UP))
                     .save(output, "$MOD_ID:extra_collar_collar_collar_crafting")
 
-                collarCrafterBuilder.create(RecipeCategory.MISC, ModItems.LOCK, ModItemTags.COLLARS,
+                collarCrafterBuilder.create(RecipeCategory.MISC, ModItems.LOCK_UP, ModItemTags.COLLARS,
                     DataComponents.ENCHANTMENTS, curseOfBinding.toImmutable()
                 )
-                    .unlockedBy(getHasName(ModItems.LOCK), has(ModItems.LOCK))
+                    .unlockedBy(getHasName(ModItems.LOCK_UP), has(ModItems.LOCK_UP))
                     .save(output, "$MOD_ID:lock_collar_collar_crafting")
 
-                collarCrafterBuilder.create(RecipeCategory.MISC, Items.IRON_INGOT, ModItemTags.REMOTES,
+                collarCrafterBuilder.create(RecipeCategory.MISC, ModItems.DOUBLE_RANGE_UP, ModItemTags.REMOTES,
                     ModDataComponents.DOUBLE_RANGE, DoubleRangeDataComponent(true)
                 )
-                    .unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))
+                    .unlockedBy(getHasName(ModItems.DOUBLE_RANGE_UP), has(ModItems.DOUBLE_RANGE_UP))
                     .save(output, "$MOD_ID:double_range_remote_collar_crafting")
             }
 

@@ -28,6 +28,13 @@ class ItemTagDataGen(output: FabricPackOutput, lookup: CompletableFuture<HolderL
             .add(ModItems.BLINDING_REMOTE_KEY)
             .add(ModItems.FROZEN_REMOTE_KEY)
 
+        builder(ModItemTags.UPGRADE_TEMPLATES)
+            .add(ModItems.LOCK_UP_KEY)
+            .add(ModItems.BELL_UP_KEY)
+            .add(ModItems.EXTRA_COLLAR_UP_KEY)
+            .add(ModItems.UNI_UP_KEY)
+            .add(ModItems.DOUBLE_RANGE_UP_KEY)
+
         builder(ModItemTags.NECKLACES)
             .addTag(ModItemTags.COLLARS)
 

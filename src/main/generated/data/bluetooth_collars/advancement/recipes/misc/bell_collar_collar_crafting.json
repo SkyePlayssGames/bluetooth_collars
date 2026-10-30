@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bell": {
+    "has_bell_upgrade": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:bell"
+            "items": "bluetooth_collars:bell_upgrade"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_bell"
+      "has_bell_upgrade"
     ]
   ],
   "rewards": {

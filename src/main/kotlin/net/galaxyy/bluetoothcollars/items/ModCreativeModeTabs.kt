@@ -1,7 +1,6 @@
 package net.galaxyy.bluetoothcollars.items
 
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab
-import net.fabricmc.fabric.impl.creativetab.FabricCreativeModeTabBuilderImpl
 import net.galaxyy.bluetoothcollars.BluetoothCollars.LOGGER
 import net.galaxyy.bluetoothcollars.BluetoothCollars.MOD_ID
 import net.galaxyy.bluetoothcollars.BluetoothCollars.id
@@ -20,7 +19,7 @@ object ModCreativeModeTabs {
         .icon { ItemStack(ModItems.TIED_DOWN_COLLAR) }
         .title(Component.translatable("collar_tab.$MOD_ID"))
         .displayItems { parameters, output ->
-            output.accept(ModItems.LOCK)
+            output.accept(ModBlocks.COLLAR_CRAFTER)
             output.accept(ModItems.TIED_DOWN_COLLAR)
             output.accept(ModItems.TIED_DOWN_REMOTE)
             output.accept(ModItems.CLUMSY_COLLAR)
@@ -35,7 +34,11 @@ object ModCreativeModeTabs {
             output.accept(ModItems.BLINDING_REMOTE)
             output.accept(ModItems.FROZEN_COLLAR)
             output.accept(ModItems.FROZEN_REMOTE)
-            output.accept(ModBlocks.COLLAR_CRAFTER)
+            output.accept(ModItems.LOCK_UP)
+            output.accept(ModItems.BELL_UP)
+            output.accept(ModItems.UNI_UP)
+            output.accept(ModItems.EXTRA_COLLAR_UP)
+            output.accept(ModItems.DOUBLE_RANGE_UP)
         }
         .build()
 

@@ -1,7 +1,7 @@
 {
   "type": "bluetooth_collars:collar_crafting",
   "base": "#bluetooth_collars:collars",
-  "ingredient": "minecraft:diamond",
+  "ingredient": "bluetooth_collars:universal_upgrade",
   "output": {
     "bluetooth_collars:owner_all": {
       "bool": true

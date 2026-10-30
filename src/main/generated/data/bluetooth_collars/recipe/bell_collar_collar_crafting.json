@@ -1,7 +1,7 @@
 {
   "type": "bluetooth_collars:collar_crafting",
   "base": "#bluetooth_collars:collars",
-  "ingredient": "minecraft:bell",
+  "ingredient": "bluetooth_collars:bell_upgrade",
   "output": {
     "bluetooth_collars:bell": {
       "bell": true

@@ -1,0 +1,9 @@
+{
+  "values": [
+    "bluetooth_collars:lock",
+    "bluetooth_collars:bell_upgrade",
+    "bluetooth_collars:extra_collar_upgrade",
+    "bluetooth_collars:universal_upgrade",
+    "bluetooth_collars:doubled_range_upgrade"
+  ]
+}

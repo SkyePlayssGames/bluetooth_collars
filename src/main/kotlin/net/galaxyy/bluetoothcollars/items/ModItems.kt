@@ -102,9 +102,33 @@ object ModItems {
     )
 
 
-    val LOCK_KEY: ResourceKey<Item> = ResourceKey.create(Registries.ITEM, id("lock"))
-    val LOCK: Item = register(
-        LOCK_KEY, ::Item,
+    val LOCK_UP_KEY: ResourceKey<Item> = ResourceKey.create(Registries.ITEM, id("lock"))
+    val LOCK_UP: Item = register(
+        LOCK_UP_KEY, ::Item,
+        Item.Properties()
+    )
+
+    val BELL_UP_KEY: ResourceKey<Item> = ResourceKey.create(Registries.ITEM, id("bell_upgrade"))
+    val BELL_UP: Item = register(
+        BELL_UP_KEY, ::Item,
+        Item.Properties()
+    )
+
+    val UNI_UP_KEY: ResourceKey<Item> = ResourceKey.create(Registries.ITEM, id("universal_upgrade"))
+    val UNI_UP: Item = register(
+        UNI_UP_KEY, ::Item,
+        Item.Properties()
+    )
+
+    val EXTRA_COLLAR_UP_KEY: ResourceKey<Item> = ResourceKey.create(Registries.ITEM, id("extra_collar_upgrade"))
+    val EXTRA_COLLAR_UP: Item = register(
+        EXTRA_COLLAR_UP_KEY, ::Item,
+        Item.Properties()
+    )
+
+    val DOUBLE_RANGE_UP_KEY: ResourceKey<Item> = ResourceKey.create(Registries.ITEM, id("doubled_range_upgrade"))
+    val DOUBLE_RANGE_UP: Item = register(
+        DOUBLE_RANGE_UP_KEY, ::Item,
         Item.Properties()
     )
 

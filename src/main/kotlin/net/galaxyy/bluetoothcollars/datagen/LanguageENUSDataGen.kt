@@ -3,7 +3,6 @@ package net.galaxyy.bluetoothcollars.datagen
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider
 import net.galaxyy.bluetoothcollars.BluetoothCollars.MOD_ID
-import net.galaxyy.bluetoothcollars.BluetoothCollars.TRINKETS_MOD_ID
 import net.galaxyy.bluetoothcollars.items.ModBlocks
 import net.galaxyy.bluetoothcollars.items.ModItems
 import net.minecraft.core.HolderLookup
@@ -28,7 +27,12 @@ class LanguageENUSDataGen(output: FabricPackOutput, lookup: CompletableFuture<Ho
         translationBuilder.add(ModItems.BLINDING_REMOTE, "Blinding Remote")
         translationBuilder.add(ModItems.FROZEN_COLLAR, "Frozen Collar")
         translationBuilder.add(ModItems.FROZEN_REMOTE, "Frozen Remote")
-        translationBuilder.add(ModItems.LOCK, "Collar Lock")
+
+        translationBuilder.add(ModItems.LOCK_UP, "Lock Upgrade")
+        translationBuilder.add(ModItems.BELL_UP, "Bell Upgrade")
+        translationBuilder.add(ModItems.UNI_UP, "Universal Upgrade")
+        translationBuilder.add(ModItems.EXTRA_COLLAR_UP, "Extra Collar Upgrade")
+        translationBuilder.add(ModItems.DOUBLE_RANGE_UP, "Doubled Range Upgrade")
 
         translationBuilder.add(ModBlocks.COLLAR_CRAFTER, "Collar Enhancer")
 

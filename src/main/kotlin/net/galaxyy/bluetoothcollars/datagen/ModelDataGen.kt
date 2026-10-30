@@ -29,6 +29,10 @@ class ModelDataGen(output: FabricPackOutput) : FabricModelProvider(output) {
         itemModelGenerators.generateFlatItem(ModItems.BLINDING_REMOTE, ModelTemplates.FLAT_ITEM)
         itemModelGenerators.generateFlatItem(ModItems.FROZEN_COLLAR, ModelTemplates.FLAT_ITEM)
         itemModelGenerators.generateFlatItem(ModItems.FROZEN_REMOTE, ModelTemplates.FLAT_ITEM)
-        itemModelGenerators.generateFlatItem(ModItems.LOCK, ModelTemplates.FLAT_ITEM)
+        itemModelGenerators.generateFlatItem(ModItems.LOCK_UP, ModelTemplates.FLAT_ITEM)
+        itemModelGenerators.generateFlatItem(ModItems.BELL_UP, ModelTemplates.FLAT_ITEM)
+        itemModelGenerators.generateFlatItem(ModItems.UNI_UP, ModelTemplates.FLAT_ITEM)
+        itemModelGenerators.generateFlatItem(ModItems.EXTRA_COLLAR_UP, ModelTemplates.FLAT_ITEM)
+        itemModelGenerators.generateFlatItem(ModItems.DOUBLE_RANGE_UP, ModelTemplates.FLAT_ITEM)
     }
 }

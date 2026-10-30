@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cobblestone": {
+    "has_extra_collar_upgrade": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:cobblestone"
+            "items": "bluetooth_collars:extra_collar_upgrade"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_cobblestone"
+      "has_extra_collar_upgrade"
     ]
   ],
   "rewards": {
