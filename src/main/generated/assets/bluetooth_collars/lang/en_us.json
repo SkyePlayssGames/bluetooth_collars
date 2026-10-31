@@ -13,6 +13,7 @@
   "bluetooth_collars.modmenu_link.source": "Source",
   "bluetooth_collars.overlay.click": "You hear your collar click!",
   "bluetooth_collars.remote_range": "Remote Range",
+  "bluetooth_collars.tooltip.become_owner": "Become owner of this collar by\npressing shift and right-clicking while holding this!",
   "bluetooth_collars.tooltip.bell": "Bell",
   "bluetooth_collars.tooltip.doubled_range": "Doubled Range",
   "bluetooth_collars.tooltip.owner": "- %s",

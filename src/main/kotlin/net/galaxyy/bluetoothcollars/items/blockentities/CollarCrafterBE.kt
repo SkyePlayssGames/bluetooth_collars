@@ -14,6 +14,7 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.server.level.ServerPlayer
+import net.minecraft.util.Prediction
 import net.minecraft.world.ContainerHelper
 import net.minecraft.world.InteractionHand
 import net.minecraft.world.InteractionResult
@@ -50,6 +51,7 @@ class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEn
         if (recipe.isEmpty) return false
         theItem = recipe.get().value.assemble(input)
         if (!player.gameMode().isCreative) player.setItemInHand(hand, player.getItemInHand(hand).copyWithCount(player.getItemInHand(hand).count - 1))
+        input.inputPatch.craftingRemainder?.create()?.let { if (!player.inventory.add(it)) player.drop(it, false, Prediction.PREDICTED) }
         this.setChanged()
         player.awardStat(ModStats.COLLAR_CRAFTER_CRAFTS)
         ModTriggers.COLLAR_CRAFTER_CRAFT_TRIGGER.trigger(player)

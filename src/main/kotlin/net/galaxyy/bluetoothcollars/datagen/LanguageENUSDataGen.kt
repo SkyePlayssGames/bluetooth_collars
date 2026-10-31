@@ -44,6 +44,7 @@ class LanguageENUSDataGen(output: FabricPackOutput, lookup: CompletableFuture<Ho
         translationBuilder.add("$MOD_ID.tooltip.owners_offline_singular", "* 1 Offline Owner")
         translationBuilder.add("$MOD_ID.tooltip.owners_offline_plural", "* %s Offline Owners")
         translationBuilder.add("$MOD_ID.tooltip.owner", "- %s")
+        translationBuilder.add("$MOD_ID.tooltip.become_owner", "Become owner of this collar by\npressing shift and right-clicking while holding this!")
 
         translationBuilder.add("$MOD_ID.tooltip.bell", "Bell")
 
