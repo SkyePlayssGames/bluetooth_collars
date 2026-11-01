@@ -52,6 +52,7 @@ class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEn
         theItem = recipe.get().value.assemble(input)
         if (!player.gameMode().isCreative) player.setItemInHand(hand, player.getItemInHand(hand).copyWithCount(player.getItemInHand(hand).count - 1))
         input.inputPatch.craftingRemainder?.create()?.let { if (!player.inventory.add(it)) player.drop(it, false, Prediction.PREDICTED) }
+        this.theItem.onCraftedBy(player, theItem.count)
         this.setChanged()
         player.awardStat(ModStats.COLLAR_CRAFTER_CRAFTS)
         ModTriggers.COLLAR_CRAFTER_CRAFT_TRIGGER.trigger(player)
