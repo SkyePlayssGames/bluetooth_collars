@@ -10,5 +10,11 @@
     "sounds": [
       "bluetooth_collars:bell_ring"
     ]
+  },
+  "villager.work_pet_handler": {
+    "subtitle": "sound.entity.villager.work_pet_handler",
+    "sounds": [
+      "minecraft:note/bell"
+    ]
   }
 }

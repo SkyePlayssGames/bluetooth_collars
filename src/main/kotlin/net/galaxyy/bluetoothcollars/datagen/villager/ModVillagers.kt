@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.`object`.builder.v1.world.poi.PoiHelper
 import net.galaxyy.bluetoothcollars.BluetoothCollars
 import net.galaxyy.bluetoothcollars.BluetoothCollars.id
 import net.galaxyy.bluetoothcollars.items.ModBlocks
+import net.galaxyy.bluetoothcollars.sounds.ModSounds
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.core.registries.Registries
@@ -22,7 +23,7 @@ object ModVillagers {
     val PET_HANDLER_POI: PoiType = PoiHelper.register(id("pet_handler_poi"), 1, 1, ModBlocks.COLLAR_CRAFTER)
 
     val PET_HANDLER: VillagerProfession = registerVillagerProfession(
-        "pet_handler", "Pet Handler", PET_HANDLER_POI_KEY, SoundEvents.NOTE_BLOCK_BELL.value(), Int2ObjectMap.ofEntries(
+        "pet_handler", "Pet Handler", PET_HANDLER_POI_KEY, ModSounds.VILLAGER_WORK_PET_HANDLER, Int2ObjectMap.ofEntries(
             Int2ObjectMap.entry(1, ModTradeSets.PET_HANDLER_1),
             Int2ObjectMap.entry(2, ModTradeSets.PET_HANDLER_2),
             Int2ObjectMap.entry(3, ModTradeSets.PET_HANDLER_3),

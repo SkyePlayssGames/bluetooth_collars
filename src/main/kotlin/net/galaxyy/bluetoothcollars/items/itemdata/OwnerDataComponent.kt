@@ -24,8 +24,12 @@ data class OwnerDataComponent(val list: List<UUID>) : TooltipProvider {
     ) {
         if (components.get(ModDataComponents.OWNER_ALL)?.bool == true) return
 
-        if (Minecraft.getInstance().player?.uuid !in list) consumer.accept(Component.translatable("$MOD_ID.tooltip.become_owner")
-            .withStyle(ChatFormatting.AQUA))
+        if (Minecraft.getInstance().player?.uuid !in list) {
+            consumer.accept(Component.translatable("$MOD_ID.tooltip.become_owner_1")
+                .withStyle(ChatFormatting.AQUA))
+            consumer.accept(Component.translatable("$MOD_ID.tooltip.become_owner_2")
+                .withStyle(ChatFormatting.AQUA))
+        }
 
         if (list.isEmpty()) { consumer.accept(Component.translatable("$MOD_ID.tooltip.owners_none")); return }
 

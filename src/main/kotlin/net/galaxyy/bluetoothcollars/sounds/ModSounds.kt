@@ -10,6 +10,7 @@ import net.minecraft.sounds.SoundEvent
 object ModSounds {
     val CLICK: SoundEvent = register("click")
     val BELL: SoundEvent = register("bell")
+    val VILLAGER_WORK_PET_HANDLER: SoundEvent = register("villager.work_pet_handler")
 
     private fun register(name: String): SoundEvent {
         val id: Identifier = id(name)
