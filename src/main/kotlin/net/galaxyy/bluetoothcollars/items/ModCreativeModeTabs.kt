@@ -19,7 +19,7 @@ object ModCreativeModeTabs {
         .icon { ItemStack(ModItems.TIED_DOWN_COLLAR) }
         .title(Component.translatable("collar_tab.$MOD_ID"))
         .displayItems { parameters, output ->
-            output.accept(ModBlocks.COLLAR_CRAFTER)
+            output.accept(ModItems.OMNI_REMOTE)
             output.accept(ModItems.TIED_DOWN_COLLAR)
             output.accept(ModItems.TIED_DOWN_REMOTE)
             output.accept(ModItems.CLUMSY_COLLAR)
@@ -34,12 +34,12 @@ object ModCreativeModeTabs {
             output.accept(ModItems.BLINDING_REMOTE)
             output.accept(ModItems.FROZEN_COLLAR)
             output.accept(ModItems.FROZEN_REMOTE)
-            output.accept(ModItems.OMNI_REMOTE)
             output.accept(ModItems.LOCK_UP)
             output.accept(ModItems.BELL_UP)
             output.accept(ModItems.UNI_UP)
             output.accept(ModItems.EXTRA_COLLAR_UP)
             output.accept(ModItems.DOUBLE_RANGE_UP)
+            output.accept(ModBlocks.COLLAR_CRAFTER)
         }
         .build()
 
