@@ -144,14 +144,4 @@ abstract class AbstractCollar(properties: Properties, val key: ResourceKey<Item>
             return result
         }
     }
-
-    private fun useLock(level: Level, player: Player, itemStack: ItemStack, hand: InteractionHand, offhandItem: ItemStack): InteractionResult {
-        val curseOfBinding: Holder<Enchantment> = level.registryAccess().get(Enchantments.BINDING_CURSE).get()
-        if (itemStack.enchantments.getLevel(curseOfBinding) != 0) return InteractionResult.PASS
-
-        itemStack.enchant(curseOfBinding, 1)
-        player.setItemInHand(hand, itemStack)
-
-        return InteractionResult.SUCCESS_SERVER
-    }
 }
