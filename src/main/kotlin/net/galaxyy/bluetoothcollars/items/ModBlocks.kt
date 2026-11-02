@@ -2,6 +2,7 @@ package net.galaxyy.bluetoothcollars.items
 
 import net.galaxyy.bluetoothcollars.BluetoothCollars.LOGGER
 import net.galaxyy.bluetoothcollars.BluetoothCollars.id
+import net.galaxyy.bluetoothcollars.items.custom.CollarCrafter
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.references.BlockItemId

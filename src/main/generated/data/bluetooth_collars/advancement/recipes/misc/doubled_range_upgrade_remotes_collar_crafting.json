@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipes": "bluetooth_collars:double_range_remote_collar_crafting"
+        "recipes": "bluetooth_collars:doubled_range_upgrade_remotes_collar_crafting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bluetooth_collars:double_range_remote_collar_crafting"
+      "bluetooth_collars:doubled_range_upgrade_remotes_collar_crafting"
     ]
   }
 }

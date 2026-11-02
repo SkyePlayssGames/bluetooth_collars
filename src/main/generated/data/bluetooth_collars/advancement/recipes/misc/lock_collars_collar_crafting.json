@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_extra_collar_upgrade": {
+    "has_lock": {
       "conditions": {
         "items": [
           {
-            "items": "bluetooth_collars:extra_collar_upgrade"
+            "items": "bluetooth_collars:lock"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipes": "bluetooth_collars:extra_collar_collar_collar_crafting"
+        "recipes": "bluetooth_collars:lock_collars_collar_crafting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_extra_collar_upgrade"
+      "has_lock"
     ]
   ],
   "rewards": {
     "recipes": [
-      "bluetooth_collars:extra_collar_collar_collar_crafting"
+      "bluetooth_collars:lock_collars_collar_crafting"
     ]
   }
 }

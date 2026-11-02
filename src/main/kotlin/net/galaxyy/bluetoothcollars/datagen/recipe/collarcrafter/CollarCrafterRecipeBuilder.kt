@@ -2,7 +2,6 @@ package net.galaxyy.bluetoothcollars.datagen.recipe.collarcrafter
 
 import net.minecraft.advancements.triggers.Criterion
 import net.minecraft.core.HolderLookup
-import net.minecraft.core.HolderSet
 import net.minecraft.core.component.DataComponentPatch
 import net.minecraft.core.component.DataComponentType
 import net.minecraft.data.recipes.RecipeBuilder
@@ -15,6 +14,7 @@ import net.minecraft.world.item.Item
 import net.minecraft.world.item.crafting.Ingredient
 import net.minecraft.world.item.crafting.Recipe
 import net.minecraft.world.level.ItemLike
+import net.minecraft.world.level.saveddata.maps.MapItemSavedData.type
 
 class CollarCrafterRecipeBuilder(
     private val recipeCategory: RecipeCategory,
@@ -65,6 +65,12 @@ class CollarCrafterRecipeBuilder(
                 CollarCrafterRecipeBuilder(recipeCategory, Ingredient.of(ingredient), Ingredient.of(itemGetter.getOrThrow(base)),
                     DataComponentPatch.builder().set(type, value).build()
                 )
+
+            fun create(recipeCategory: RecipeCategory, ingredient: ItemLike, base: ItemLike, patch: DataComponentPatch): CollarCrafterRecipeBuilder =
+                CollarCrafterRecipeBuilder(recipeCategory, Ingredient.of(ingredient), Ingredient.of(base), patch)
+
+            fun create(recipeCategory: RecipeCategory, ingredient: ItemLike, base: TagKey<Item>, patch: DataComponentPatch): CollarCrafterRecipeBuilder =
+                CollarCrafterRecipeBuilder(recipeCategory, Ingredient.of(ingredient), Ingredient.of(itemGetter.getOrThrow(base)), patch)
         }
     }
 }

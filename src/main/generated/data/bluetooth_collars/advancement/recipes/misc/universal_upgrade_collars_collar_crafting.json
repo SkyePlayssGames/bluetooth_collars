@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipes": "bluetooth_collars:owner_all_collar_collar_crafting"
+        "recipes": "bluetooth_collars:universal_upgrade_collars_collar_crafting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bluetooth_collars:owner_all_collar_collar_crafting"
+      "bluetooth_collars:universal_upgrade_collars_collar_crafting"
     ]
   }
 }

@@ -2,7 +2,7 @@ package net.galaxyy.bluetoothcollars.client.collarcrafter
 
 import com.mojang.blaze3d.vertex.PoseStack
 import com.mojang.math.Axis
-import net.galaxyy.bluetoothcollars.items.CollarCrafter
+import net.galaxyy.bluetoothcollars.items.custom.CollarCrafter
 import net.galaxyy.bluetoothcollars.items.blockentities.CollarCrafterBE
 import net.minecraft.client.renderer.SubmitNodeCollector
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer

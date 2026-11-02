@@ -2,6 +2,7 @@ package net.galaxyy.bluetoothcollars.items
 
 import net.galaxyy.bluetoothcollars.BluetoothCollars.LOGGER
 import net.galaxyy.bluetoothcollars.BluetoothCollars.id
+import net.galaxyy.bluetoothcollars.datagen.tag.ModItemTags
 import net.galaxyy.bluetoothcollars.items.collars.AbstractCollar
 import net.galaxyy.bluetoothcollars.items.collars.AbstractCollar.OmniRemote
 import net.galaxyy.bluetoothcollars.items.collars.BlindingCollar
@@ -18,11 +19,19 @@ import net.galaxyy.bluetoothcollars.items.collars.TieDownCollar
 import net.galaxyy.bluetoothcollars.items.collars.TieDownCollar.TieDownRemote
 import net.galaxyy.bluetoothcollars.items.collars.TinyCollar
 import net.galaxyy.bluetoothcollars.items.collars.TinyCollar.TinyRemote
+import net.galaxyy.bluetoothcollars.items.custom.UpgradeTemplate
+import net.galaxyy.bluetoothcollars.items.itemdata.AllOwnersDataComponent
+import net.galaxyy.bluetoothcollars.items.itemdata.BellDataComponent
+import net.galaxyy.bluetoothcollars.items.itemdata.DoubleRangeDataComponent
+import net.galaxyy.bluetoothcollars.items.itemdata.ModDataComponents
 import net.minecraft.core.Registry
+import net.minecraft.core.component.DataComponentPatch
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.core.registries.Registries
 import net.minecraft.resources.ResourceKey
+import net.minecraft.tags.TagKey
 import net.minecraft.world.item.Item
+import net.minecraft.world.level.ItemLike
 
 object ModItems {
     val TIED_DOWN_COLLAR_KEY: ResourceKey<Item> = ResourceKey.create(Registries.ITEM, id("tied_collar"))
@@ -111,37 +120,59 @@ object ModItems {
 
 
     val LOCK_UP_KEY: ResourceKey<Item> = ResourceKey.create(Registries.ITEM, id("lock"))
-    val LOCK_UP: Item = register(
-        LOCK_UP_KEY, ::Item,
+    val LOCK_UP: UpgradeTemplate = register(
+        LOCK_UP_KEY, ::UpgradeTemplate,
         Item.Properties()
     )
 
     val BELL_UP_KEY: ResourceKey<Item> = ResourceKey.create(Registries.ITEM, id("bell_upgrade"))
-    val BELL_UP: Item = register(
-        BELL_UP_KEY, ::Item,
+    val BELL_UP: UpgradeTemplate = registerUpgrade(
+        BELL_UP_KEY,
+        ModItemTags.COLLARS,
+        DataComponentPatch.builder().set(ModDataComponents.BELL, BellDataComponent(true)).build(),
         Item.Properties()
     )
 
     val UNI_UP_KEY: ResourceKey<Item> = ResourceKey.create(Registries.ITEM, id("universal_upgrade"))
-    val UNI_UP: Item = register(
-        UNI_UP_KEY, ::Item,
+    val UNI_UP: UpgradeTemplate = registerUpgrade(
+        UNI_UP_KEY,
+        ModItemTags.COLLARS,
+        DataComponentPatch.builder().set(ModDataComponents.OWNER_ALL, AllOwnersDataComponent(true)).build(),
         Item.Properties()
     )
 
     val EXTRA_COLLAR_UP_KEY: ResourceKey<Item> = ResourceKey.create(Registries.ITEM, id("extra_collar_upgrade"))
-    val EXTRA_COLLAR_UP: Item = register(
-        EXTRA_COLLAR_UP_KEY, ::Item,
+    val EXTRA_COLLAR_UP: UpgradeTemplate = registerUpgrade(
+        EXTRA_COLLAR_UP_KEY,
+        ModItemTags.COLLARS,
+        DataComponentPatch.builder().set(ModDataComponents.EXTRA_COLLAR, true).build(),
         Item.Properties()
     )
 
     val DOUBLE_RANGE_UP_KEY: ResourceKey<Item> = ResourceKey.create(Registries.ITEM, id("doubled_range_upgrade"))
-    val DOUBLE_RANGE_UP: Item = register(
-        DOUBLE_RANGE_UP_KEY, ::Item,
+    val DOUBLE_RANGE_UP: UpgradeTemplate = registerUpgrade(
+        DOUBLE_RANGE_UP_KEY,
+        ModItemTags.REMOTES,
+        DataComponentPatch.builder().set(ModDataComponents.DOUBLE_RANGE, DoubleRangeDataComponent(true)).build(),
         Item.Properties()
     )
 
     private fun <T : Item> register(key: ResourceKey<Item>, factory: (Item.Properties) -> T, settings: Item.Properties): T {
         val item: T = factory(settings.setId(key))
+
+        Registry.register(BuiltInRegistries.ITEM, key, item)
+        return item
+    }
+
+    private fun registerUpgrade(key: ResourceKey<Item>, base: ItemLike, patch: DataComponentPatch, settings: Item.Properties): UpgradeTemplate {
+        val item: UpgradeTemplate = UpgradeTemplate(settings.setId(key), base, patch)
+
+        Registry.register(BuiltInRegistries.ITEM, key, item)
+        return item
+    }
+
+    private fun registerUpgrade(key: ResourceKey<Item>, base: TagKey<Item>, patch: DataComponentPatch, settings: Item.Properties): UpgradeTemplate {
+        val item: UpgradeTemplate = UpgradeTemplate(settings.setId(key), base, patch)
 
         Registry.register(BuiltInRegistries.ITEM, key, item)
         return item

@@ -12,10 +12,12 @@ import net.galaxyy.bluetoothcollars.items.itemdata.BellDataComponent
 import net.galaxyy.bluetoothcollars.items.itemdata.DoubleRangeDataComponent
 import net.galaxyy.bluetoothcollars.items.itemdata.ModDataComponents
 import net.galaxyy.bluetoothcollars.datagen.tag.ModItemTags
+import net.galaxyy.bluetoothcollars.items.custom.UpgradeTemplate
 import net.minecraft.advancements.Advancement
 import net.minecraft.core.Holder
 import net.minecraft.core.HolderLookup
 import net.minecraft.core.component.DataComponents
+import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.recipes.RecipeCategory
 import net.minecraft.data.recipes.RecipeOutput
@@ -73,35 +75,24 @@ class RecipeDataGen(output: FabricPackOutput, registriesFuture: CompletableFutur
                     .unlockedBy(getHasName(Blocks.CRAFTING_TABLE), has(Blocks.CRAFTING_TABLE))
                     .save(output)
 
-                collarCrafterBuilder.create(RecipeCategory.MISC, ModItems.BELL_UP, ModItemTags.COLLARS,
-                    ModDataComponents.BELL, BellDataComponent(true)
-                )
-                    .unlockedBy(getHasName(ModItems.BELL_UP), has(ModItems.BELL_UP))
-                    .save(output, "$MOD_ID:bell_collar_collar_crafting")
 
-                collarCrafterBuilder.create(RecipeCategory.MISC, ModItems.UNI_UP, ModItemTags.COLLARS,
-                    ModDataComponents.OWNER_ALL, AllOwnersDataComponent(true)
-                )
-                    .unlockedBy(getHasName(ModItems.UNI_UP), has(ModItems.UNI_UP))
-                    .save(output, "$MOD_ID:owner_all_collar_collar_crafting")
-
-                collarCrafterBuilder.create(RecipeCategory.MISC, ModItems.EXTRA_COLLAR_UP, ModItemTags.COLLARS,
-                    ModDataComponents.EXTRA_COLLAR, true
-                )
-                    .unlockedBy(getHasName(ModItems.EXTRA_COLLAR_UP), has(ModItems.EXTRA_COLLAR_UP))
-                    .save(output, "$MOD_ID:extra_collar_collar_collar_crafting")
+                UpgradeTemplate.ALL.forEach { template ->
+                    if (template.patch == null) return@forEach
+                    if (template.baseItem != null)
+                        collarCrafterBuilder.create(RecipeCategory.MISC, template, template.baseItem!!, template.patch!!)
+                            .unlockedBy(getHasName(template), has(template))
+                            .save(output, "$MOD_ID:${BuiltInRegistries.ITEM.wrapAsHolder(template).unwrapKey().get().identifier().path}_${template.baseItem!!}_collar_crafting")
+                    else if (template.baseTag != null)
+                        collarCrafterBuilder.create(RecipeCategory.MISC, template, template.baseTag!!, template.patch!!)
+                            .unlockedBy(getHasName(template), has(template))
+                            .save(output, "$MOD_ID:${BuiltInRegistries.ITEM.wrapAsHolder(template).unwrapKey().get().identifier().path}_${template.baseTag!!.location.path}_collar_crafting")
+                }
 
                 collarCrafterBuilder.create(RecipeCategory.MISC, ModItems.LOCK_UP, ModItemTags.COLLARS,
                     DataComponents.ENCHANTMENTS, curseOfBinding.toImmutable()
                 )
                     .unlockedBy(getHasName(ModItems.LOCK_UP), has(ModItems.LOCK_UP))
-                    .save(output, "$MOD_ID:lock_collar_collar_crafting")
-
-                collarCrafterBuilder.create(RecipeCategory.MISC, ModItems.DOUBLE_RANGE_UP, ModItemTags.REMOTES,
-                    ModDataComponents.DOUBLE_RANGE, DoubleRangeDataComponent(true)
-                )
-                    .unlockedBy(getHasName(ModItems.DOUBLE_RANGE_UP), has(ModItems.DOUBLE_RANGE_UP))
-                    .save(output, "$MOD_ID:double_range_remote_collar_crafting")
+                    .save(output, "$MOD_ID:lock_collars_collar_crafting")
             }
 
             private fun makeRemoteRecipe(remote: Item, wool: Item, output: RecipeOutput) {
