@@ -55,6 +55,7 @@ class LanguageENUSDataGen(output: FabricPackOutput, lookup: CompletableFuture<Ho
 
         translationBuilder.add("tag.item.$MOD_ID.collars", "Collars")
         translationBuilder.add("tag.item.$MOD_ID.remotes", "Remotes")
+        translationBuilder.add("tag.item.$MOD_ID.upgrade_templates", "Remotes")
 
         translationBuilder.add("advancement.$MOD_ID.get_collared.name", "Get Collared!")
         translationBuilder.add("advancement.$MOD_ID.get_collared.description", "Time to be a little pet!")
