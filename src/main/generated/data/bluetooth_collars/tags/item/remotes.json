@@ -6,6 +6,7 @@
     "bluetooth_collars:tied_remote",
     "bluetooth_collars:tiny_remote",
     "bluetooth_collars:blinding_remote",
-    "bluetooth_collars:frozen_remote"
+    "bluetooth_collars:frozen_remote",
+    "bluetooth_collars:omni_remote"
   ]
 }

@@ -34,6 +34,7 @@ object ModCreativeModeTabs {
             output.accept(ModItems.BLINDING_REMOTE)
             output.accept(ModItems.FROZEN_COLLAR)
             output.accept(ModItems.FROZEN_REMOTE)
+            output.accept(ModItems.OMNI_REMOTE)
             output.accept(ModItems.LOCK_UP)
             output.accept(ModItems.BELL_UP)
             output.accept(ModItems.UNI_UP)

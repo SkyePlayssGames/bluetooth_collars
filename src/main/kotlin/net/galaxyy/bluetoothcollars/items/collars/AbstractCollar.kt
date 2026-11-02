@@ -133,7 +133,7 @@ abstract class AbstractCollar(properties: Properties, val key: ResourceKey<Item>
 
             level.getEntitiesOfClass(Player::class.java, AABB(blockPos).inflate(clickerRange)).forEach { pet ->
                 TrinketsApi.getAttachment(pet).forEach { _, item ->
-                    if (item.item.javaClass == collar && (item.get(ModDataComponents.OWNER)?.list?.contains(player.uuid) == true || item.get(ModDataComponents.OWNER_ALL)?.bool == true)) {
+                    if (collar.isInstance(item.item) && (item.get(ModDataComponents.OWNER)?.list?.contains(player.uuid) == true || item.get(ModDataComponents.OWNER_ALL)?.bool == true)) {
                         result[item] = pet as ServerPlayer
                         pet.sendOverlayMessage(Component.translatable("$MOD_ID.overlay.click"))
                         level.playSound(null, pet.blockPosition(), ModSounds.CLICK, SoundSource.PLAYERS, 1f, 1f)
@@ -144,4 +144,6 @@ abstract class AbstractCollar(properties: Properties, val key: ResourceKey<Item>
             return result
         }
     }
+
+    class OmniRemote(properties: Properties) : Remote<AbstractCollar>(AbstractCollar::class.java, properties)
 }

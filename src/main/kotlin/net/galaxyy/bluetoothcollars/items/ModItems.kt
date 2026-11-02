@@ -3,6 +3,7 @@ package net.galaxyy.bluetoothcollars.items
 import net.galaxyy.bluetoothcollars.BluetoothCollars.LOGGER
 import net.galaxyy.bluetoothcollars.BluetoothCollars.id
 import net.galaxyy.bluetoothcollars.items.collars.AbstractCollar
+import net.galaxyy.bluetoothcollars.items.collars.AbstractCollar.OmniRemote
 import net.galaxyy.bluetoothcollars.items.collars.BlindingCollar
 import net.galaxyy.bluetoothcollars.items.collars.BlindingCollar.BlindingRemote
 import net.galaxyy.bluetoothcollars.items.collars.ClumsyCollar
@@ -98,6 +99,13 @@ object ModItems {
     val FROZEN_REMOTE_KEY: ResourceKey<Item> = ResourceKey.create(Registries.ITEM, id("frozen_remote"))
     val FROZEN_REMOTE: FrozenRemote = register(
         FROZEN_REMOTE_KEY, ::FrozenRemote,
+        Item.Properties()
+    )
+
+
+    val OMNI_REMOTE_KEY: ResourceKey<Item> = ResourceKey.create(Registries.ITEM, id("omni_remote"))
+    val OMNI_REMOTE: OmniRemote = register(
+        OMNI_REMOTE_KEY, ::OmniRemote,
         Item.Properties()
     )
 

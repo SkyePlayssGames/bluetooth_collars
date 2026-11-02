@@ -27,6 +27,7 @@ class LanguageENUSDataGen(output: FabricPackOutput, lookup: CompletableFuture<Ho
         translationBuilder.add(ModItems.BLINDING_REMOTE, "Blinding Remote")
         translationBuilder.add(ModItems.FROZEN_COLLAR, "Frozen Collar")
         translationBuilder.add(ModItems.FROZEN_REMOTE, "Frozen Remote")
+        translationBuilder.add(ModItems.OMNI_REMOTE, "Omni Remote")
 
         translationBuilder.add(ModItems.LOCK_UP, "Lock Upgrade")
         translationBuilder.add(ModItems.BELL_UP, "Bell Upgrade")

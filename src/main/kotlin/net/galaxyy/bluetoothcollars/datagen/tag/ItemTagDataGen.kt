@@ -27,6 +27,7 @@ class ItemTagDataGen(output: FabricPackOutput, lookup: CompletableFuture<HolderL
             .add(ModItems.TINY_REMOTE_KEY)
             .add(ModItems.BLINDING_REMOTE_KEY)
             .add(ModItems.FROZEN_REMOTE_KEY)
+            .add(ModItems.OMNI_REMOTE_KEY)
 
         builder(ModItemTags.UPGRADE_TEMPLATES)
             .add(ModItems.LOCK_UP_KEY)
