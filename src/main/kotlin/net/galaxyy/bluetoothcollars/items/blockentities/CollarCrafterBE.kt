@@ -41,21 +41,27 @@ class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEn
     }
 
     private fun tryCraftCollar(player: ServerPlayer, hand: InteractionHand): Boolean {
+        val result = tryCraft(player.getItemInHand(hand))
+        if (!result) return false
+        if (!player.gameMode().isCreative) player.setItemInHand(hand, player.getItemInHand(hand).copyWithCount(player.getItemInHand(hand).count - 1))
+        player.getItemInHand(hand).craftingRemainder?.create()?.let { if (!player.inventory.add(it)) player.drop(it, false, Prediction.PREDICTED) }
+        this.theItem.onCraftedBy(player, theItem.count)
+        this.setChanged()
+        player.awardStat(ModStats.COLLAR_CRAFTER_CRAFTS)
+        ModTriggers.COLLAR_CRAFTER_CRAFT_TRIGGER.trigger(player)
+        return true
+    }
+
+    fun tryCraft(itemStack: ItemStack): Boolean {
         if (isEmpty) return false
         val input = CollarCrafterRecipeInput(
-            player.getItemInHand(hand), theItem
+            itemStack, theItem
         )
         val recipe = (level as ServerLevel).recipeAccess().getRecipeFor(
             ModRecipeTypes.COLLAR_CRAFTER_TYPE, input, level!!
         )
         if (recipe.isEmpty) return false
         theItem = recipe.get().value.assemble(input)
-        if (!player.gameMode().isCreative) player.setItemInHand(hand, player.getItemInHand(hand).copyWithCount(player.getItemInHand(hand).count - 1))
-        input.inputPatch.craftingRemainder?.create()?.let { if (!player.inventory.add(it)) player.drop(it, false, Prediction.PREDICTED) }
-        this.theItem.onCraftedBy(player, theItem.count)
-        this.setChanged()
-        player.awardStat(ModStats.COLLAR_CRAFTER_CRAFTS)
-        ModTriggers.COLLAR_CRAFTER_CRAFT_TRIGGER.trigger(player)
         return true
     }
 

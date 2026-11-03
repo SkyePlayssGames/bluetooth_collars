@@ -6,7 +6,8 @@
     "CrawlCollarMixin",
     "FreezeCollarMoveMixin",
     "InteractPlayerMixin",
-    "PawCollarMixin"
+    "PawCollarMixin",
+    "PostResourceReloadMixin$MinecraftServerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -15,6 +16,7 @@
     "requireAnnotations": true
   },
   "client": [
-    "FreezeCollarCameraMixin"
+    "FreezeCollarCameraMixin",
+    "PostResourceReloadMixin$WorldOpenFlowsMixin"
   ]
 }

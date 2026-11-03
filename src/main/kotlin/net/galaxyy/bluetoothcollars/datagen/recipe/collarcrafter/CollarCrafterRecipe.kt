@@ -29,7 +29,6 @@ data class CollarCrafterRecipe(val inputPatch: Ingredient, val inputCollar: Ingr
     }
 
     override fun assemble(input: CollarCrafterRecipeInput): ItemStack {
-        BluetoothCollars.LOGGER.info(output.toString())
         input.getItem(0).applyComponents(output)
         BluetoothCollars.LOGGER.info(input.getItem(0).components.toString())
         return input.getItem(0)
