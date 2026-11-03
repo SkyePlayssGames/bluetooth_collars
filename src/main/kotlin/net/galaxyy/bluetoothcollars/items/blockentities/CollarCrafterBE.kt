@@ -28,7 +28,15 @@ import net.minecraft.world.level.storage.ValueOutput
 import net.minecraft.world.ticks.ContainerSingleItem
 
 class CollarCrafterBE(worldPosition: BlockPos, blockState: BlockState) : BlockEntity(ModBlockEntities.COLLAR_CRAFTER_BE, worldPosition, blockState), ContainerSingleItem {
-     var inventory: NonNullList<ItemStack> = NonNullList.withSize(1, ItemStack.EMPTY)
+    var inventory: NonNullList<ItemStack> = NonNullList.withSize(1, ItemStack.EMPTY)
+
+    override fun getMaxStackSize(): Int {
+        return 1
+    }
+
+    override fun canPlaceItem(slot: Int, itemStack: ItemStack): Boolean {
+        return slot == 0 && isEmpty
+    }
 
     fun rightClick(player: ServerPlayer, hand: InteractionHand): InteractionResult {
         return if (isEmpty) {
